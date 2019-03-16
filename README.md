@@ -20,7 +20,11 @@ The objective of the puzzle is to move the stack to another rod following these 
 
 ---
 
-# Implementation Overview (Backlog)
+# Implementation Pre-Analysis
+
+Before attempting to code the solution, my first step is break the problem down into smaller, easier-to-manage parts. While analyzing each of the sub-problems, I'm then able to prioritize the project's features and designate some for post-MVP completion.
+
+Here is my implementation overview (along with an ongoing post-MVP backlog):
 
 1. Implement a responsive, grid system.
    * Build a 24-column grid with a floor base and three standing rods.
