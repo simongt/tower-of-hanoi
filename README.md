@@ -20,7 +20,7 @@ The objective of the puzzle is to move the stack to another rod following these 
 
 ---
 
-# Backlog
+# Implementation Overview (Backlog)
 
 1. Implement a responsive, grid system.
    * Build a 24-column grid with a floor base and three standing rods.
