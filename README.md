@@ -1,6 +1,6 @@
 # Tower of Hanoi 🗼
 
-| In this project, I use <a href="https://reactjs.org/">React.js</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">CSS Grid Layout</a> to implement a clone of the classic puzzle game, <a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi/">Tower of Hanoi</a>. |
+| In this project, I use <a href="https://reactjs.org/">React.js</a>, <a href="https://redux.js.org/">Redux.js</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">CSS Grid Layout</a> to implement a clone of the classic puzzle game, <a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi/">Tower of Hanoi</a>. |
 |:-|
 
 ## Puzzle Objective
