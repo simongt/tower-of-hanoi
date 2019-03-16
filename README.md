@@ -20,7 +20,9 @@ The objective of the puzzle is to move the stack to another rod following these 
 
 ---
 
-# Implementation Pre-Analysis
+# Implementation
+
+## Analysis
 
 Before attempting to code the solution, my first step is break the problem down into smaller, easier-to-manage parts. While analyzing each of the sub-problems, I'm then able to prioritize the project's features and designate some for post-MVP completion.
 
