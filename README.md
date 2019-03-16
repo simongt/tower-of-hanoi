@@ -18,7 +18,43 @@ The objective of the puzzle is to move the stack to another rod following these 
   </a>
 </p>
 
-<hr>
+---
+
+# Backlog
+
+1. Implement a responsive, grid system.
+   * Build a 24-column grid with a floor base and three standing rods.
+     * No need to [reinvent the wheel](https://unsemantic.com/demo-responsive). (*Thank you, [Unsemantic](https://unsemantic.com/)!* 🙏)
+   * Integrate with [SASS](https://sass-lang.com/) to handle styling. ***Post-MVP***
+
+2. Implement component(s) for disks and their mechanics, e.g. click-and-drag feature. 
+   * Upon release, lock to nearest standing rod and drop to the bottom.
+     * Use [SyntheticEvent](https://reactjs.org/docs/events.html) wrappers to handle click-and-drag.
+   * Generate at least three disks stacked on the first rod.
+     * Implement difficulty levels according to the number of disks, where the user can select a starting number of disks (the minimum / default is 3).
+
+3. Implement gameplay logic.
+   * Only the upper (top-most) disk from any rod can be moved.
+   * Allow only valid moves:
+     * a disk may be dropped over a larger disk within another rod,
+     * or a disk may be dropped into an empty rod (containing no disks).
+   * Game is won when disks are stacked conically on either the second or third rod (the first rod is empty).
+     * Implement an option to continue to next difficulty level (add one more disk). ***Post-MVP***
+   * Implement a restart button to move all the disks back to the first rod and reset number of moves played for the round so far. ***Post-MVP***
+
+4. Implement an AI logic component. ***Post-MVP***
+   * Compare algorithms for any number of disks.
+      * Design iterative algorithm.
+      * Design recursive algorithm.
+   * Implement feature where user can click a button at any point of the game and step through the solution. ***Post-MVP***
+   * Implement feature where user can click a button at any point of the game and animate the remaining portion of the solution. ***Post-MVP***
+
+5. Integrate with [React-Redux](https://react-redux.js.org/) to manage state.
+
+6. Test thoroughly for cross-browser compatibility, responsiveness and performance.
+   * Since I'm taking a desktop-first, responsive design approach, the next step in this regard would be to adapt everything for mobile-readiness. ***Post-MVP***
+
+---
 
 <details>
 <summary>This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.
