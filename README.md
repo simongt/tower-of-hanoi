@@ -1,4 +1,28 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tower of Hanoi 🗼
+
+| In this project, I use <a href="https://reactjs.org/">React.js</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">CSS Grid Layout</a> to implement a clone of the classic puzzle game, <a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi/">Tower of Hanoi</a>. |
+|:-|
+
+## Puzzle Objective
+
+Tower of Hanoi consists of three rods and at least three disks of different sizes, which can slide onto any rod. The puzzle starts with the disks in a neat stack in ascending order of size on one rod, the smallest at the top, thus making a conical shape.
+
+The objective of the puzzle is to move the stack to another rod following these simple rules:
+* Only one disk can be moved at a time.
+* Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack or on an empty rod.
+* No larger disk may be placed on top of a smaller disk.
+
+<p align="center">
+  <a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi/">
+    <img src="./public/img/tower-of-hanoi-solved.gif" alt="Tower of Hanoi" />
+  </a>
+</p>
+
+<hr>
+
+<details>
+<summary>This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.
+</summary><br>
 
 ## Available Scripts
 
@@ -66,3 +90,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+</details>
