@@ -1,11 +1,11 @@
-# Tower of Hanoi 🗼
+# Towers of Hanoi 🗼
 
-| In this project, I use <a href="https://reactjs.org/">React.js</a>, <a href="https://redux.js.org/">Redux.js</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">CSS Grid Layout</a> to implement a clone of the classic puzzle game, <a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi/">Tower of Hanoi</a>. |
+| In this project, I use <a href="https://reactjs.org/">React</a>, <a href="https://redux.js.org/">Redux</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">CSS Grid Layout</a> to implement a clone of the classic puzzle game, <a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi/">Towers of Hanoi</a>. |
 |:-|
 
 ## Puzzle Objective
 
-Tower of Hanoi consists of three rods and at least three disks of different sizes, which can slide onto any rod. The puzzle starts with the disks in a neat stack in ascending order of size on one rod, the smallest at the top, thus making a conical shape.
+Towers of Hanoi consists of three rods and at least three disks of different sizes, which can slide onto any rod. The puzzle starts with the disks in a neat stack in ascending order of size on one rod, the smallest at the top, thus making a conical shape.
 
 The objective of the puzzle is to move the stack to another rod following these simple rules:
 * Only one disk can be moved at a time.
@@ -14,7 +14,7 @@ The objective of the puzzle is to move the stack to another rod following these 
 
 <p align="center">
   <a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi/">
-    <img src="./public/img/tower-of-hanoi-solved.gif" alt="Tower of Hanoi" />
+    <img src="./public/img/tower-of-hanoi-solved.gif" alt="Towers of Hanoi" />
   </a>
 </p>
 
@@ -30,7 +30,7 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
 
 1. Implement a responsive, grid system.
    * Build a 24-column grid with a floor base and three standing rods.
-     * No need to [reinvent the wheel](https://unsemantic.com/demo-responsive). (*Thank you, [Unsemantic](https://unsemantic.com/)!* 🙏)
+     ![Grid Mockup](./public/img/tower-of-hanoi-grid-mockup-1.jpg)
    * Integrate with [SASS](https://sass-lang.com/) to handle styling. ***Post-MVP***
 
 2. Implement component(s) for disks and their mechanics, e.g. click-and-drag feature. 
@@ -50,8 +50,8 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
 
 4. Implement an AI logic component. ***Post-MVP***
    * Compare algorithms for any number of disks.
-      * Design iterative algorithm.
-      * Design recursive algorithm.
+      * Design iterative solution.
+      * Design recursive solution.
    * Implement feature where user can click a button at any point of the game and step through the solution. ***Post-MVP***
    * Implement feature where user can click a button at any point of the game and animate the remaining portion of the solution. ***Post-MVP***
 
