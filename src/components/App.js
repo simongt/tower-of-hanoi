@@ -9,14 +9,16 @@ import "../styles/global.css";
 class App extends Component {
   render() {
     return (
-      <div className="app" style={{
-        width: "100vw",
-        height: "100vh",
-        display: "flex",
-        flexFlow: "column nowrap",
-        justifyContent: "space-between",
-        overflow: "hidden",
-      }}>
+      <div
+        className="App"
+        style={{
+          width: "100vw",
+          height: "100vh",
+          display: "grid",
+          gridTemplateRows: "12rem 1fr 2rem",
+          overflow: "hidden",
+        }}
+      >
         <Header />
         <Game />
         <Footer />

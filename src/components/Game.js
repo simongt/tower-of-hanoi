@@ -8,7 +8,7 @@ export class Game extends Component {
     super(props)
   
     this.state = {
-      showModal: false,
+      showModal: true,
     }
   }
   
@@ -32,7 +32,12 @@ export class Game extends Component {
   render() {
     const { showModal } = this.state;
     return (
-      <div className="game">
+      <div
+        className="Game"
+        style={{
+          display: "grid"
+        }}
+      >
         <DescriptionModal
           showModal={showModal}
           toggleModal={this.handleToggleModal}

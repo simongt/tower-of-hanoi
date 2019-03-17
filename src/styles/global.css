@@ -11,6 +11,11 @@
   /* user-select: none; */
 }
 
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 html, body {
   background:
     linear-gradient(to right bottom,
