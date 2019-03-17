@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Footer = props => (
-  <footer style={{ 
+  <footer style={{
     background: "rgba(0, 0, 0, 0.2)",
     padding: "0.5em 0",
     display: "flex",
@@ -9,7 +9,7 @@ const Footer = props => (
     alignItems: "center",
     alignContent: "center",
   }}>
-    <p style={{ fontSize: "1em" }}>
+    <p style={{ fontSize: "1em", textTransform: "uppercase" }}>
       {"Developed by "}
       <a
         href="https://github.com/simongt/towers-of-hanoi"

@@ -10,7 +10,9 @@ const Header = props => (
       background: "rgba(0, 0, 0, 0.2)"
     }}
   >
-    <h1 style={{ fontSize: "5em" }}>Towers of Hanoi</h1>
+    <h1 style={{ fontSize: "5em", textTransform: "uppercase", fontWeight: "100" }}>
+      Towers of Hanoi
+    </h1>
   </header>
 );
 

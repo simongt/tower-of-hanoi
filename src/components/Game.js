@@ -8,7 +8,7 @@ export class Game extends Component {
     super(props)
   
     this.state = {
-      showModal: true,
+      showModal: false,
     }
   }
   
