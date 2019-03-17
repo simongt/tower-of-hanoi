@@ -67,9 +67,12 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
 
 ## Dependencies
 
-| Tech | Description |
+| Dependency | Link |
 |:-|:-|
 | react-modal | https://reactcommunity.org/react-modal/ |
+| react-dnd | https://react-dnd.github.io/react-dnd/ |
+| gh-pages | https://pages.github.com/ |
+| | |
 
 <details>
 <summary>This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.

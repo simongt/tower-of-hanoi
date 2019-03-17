@@ -8,7 +8,7 @@ export class GameGrid extends Component {
           to top,
           rgba(0, 0, 0, 0.4),
           rgba(252,40, 93, 0.75),
-          rgba(241, 91, 49, 1),
+          rgba(241, 91, 49, 0.9),
           rgba(255, 204, 0, 1)
         )
       `,
@@ -27,12 +27,11 @@ export class GameGrid extends Component {
       }}>
         {/* three rods have fixed width of 3rem */}
         <div
-          className="grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, auto 3rem) auto",
             textAlign: "center",
-            height: "40vh",
+            height: "25vh",
             justifyItems: "stretch"
           }}
         >
