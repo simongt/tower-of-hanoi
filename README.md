@@ -36,9 +36,9 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
      </details> 
    * Integrate with [SASS](https://sass-lang.com/) to handle styling. ***Post-MVP***
 
-2. Implement component(s) for disks and their mechanics, e.g. click-and-drag feature. 
+2. Implement component(s) for disks and their mechanics, e.g. drag-and-drop feature. 
    * Upon release, lock to nearest standing rod and drop to the bottom.
-     * Use [SyntheticEvent](https://reactjs.org/docs/events.html) wrappers to handle click-and-drag.
+     * Use [SyntheticEvent](https://reactjs.org/docs/events.html) wrappers to handle drag-and-drop.
    * Generate at least three disks stacked on the first rod.
      * Implement difficulty levels according to the number of disks, where the user can select a starting number of disks (the minimum / default is 3).
 
