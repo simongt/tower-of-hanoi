@@ -14,7 +14,7 @@ The objective of the puzzle is to move the stack to another rod following these 
 
 <p align="center">
   <a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi/">
-    <img src="./public/img/tower-of-hanoi-solved.gif" alt="Towers of Hanoi" />
+    <img src="./public/img/towers-of-hanoi-solved.gif" alt="Towers of Hanoi" />
   </a>
 </p>
 
@@ -30,7 +30,10 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
 
 1. Implement a responsive, grid system.
    * Build a 24-column grid with a floor base and three standing rods.
-     ![Grid Mockup](./public/img/tower-of-hanoi-grid-mockup-1.jpg)
+     <details>
+     <summary>Grid Mockup (Diagram)</summary>
+     <img src="./public/img/towers-of-hanoi-grid-mockup-1.jpg" alt="Grid Mockup">
+     </details> 
    * Integrate with [SASS](https://sass-lang.com/) to handle styling. ***Post-MVP***
 
 2. Implement component(s) for disks and their mechanics, e.g. click-and-drag feature. 
@@ -61,6 +64,12 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
    * Since I'm taking a desktop-first, responsive design approach, the next step in this regard would be to adapt everything for mobile-readiness. ***Post-MVP***
 
 ---
+
+## Dependencies
+
+| Tech | Description |
+|:-|:-|
+| react-modal | https://reactcommunity.org/react-modal/ |
 
 <details>
 <summary>This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.

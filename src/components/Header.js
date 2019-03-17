@@ -1,9 +1,17 @@
 import React from "react";
 
 const Header = props => (
-  <div className="header">
+  <header
+    style={{
+      padding: "2em 0 0.5em 0",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "flex-end",
+      background: "rgba(0, 0, 0, 0.2)"
+    }}
+  >
     <h1 style={{ fontSize: "5em" }}>Towers of Hanoi</h1>
-  </div>
+  </header>
 );
 
 export default Header;

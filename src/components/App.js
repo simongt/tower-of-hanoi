@@ -1,18 +1,25 @@
 import React, { Component } from "react";
 
 import Header from "./Header";
-import Description from "./Description";
 import Game from "./Game";
+import Footer from "./Footer";
 
 import "../styles/global.css";
 
 class App extends Component {
   render() {
     return (
-      <div className="app">
+      <div className="app" style={{
+        width: "100vw",
+        height: "100vh",
+        display: "flex",
+        flexFlow: "column nowrap",
+        justifyContent: "space-between",
+        overflow: "hidden",
+      }}>
         <Header />
-        <Description />
         <Game />
+        <Footer />
       </div>
     );
   }
