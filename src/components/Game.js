@@ -1,14 +1,22 @@
 import React, { Component } from "react";
-
 import DescriptionModal from "./DescriptionModal";
 import GameGrid from "./GameGrid";
 
-export class Game extends Component {
+class Game extends Component {
   constructor(props) {
-    super(props)
-
+    super(props);
     this.state = {
       showModal: true,
+      disks: [
+        { id: 1, label: "small" },
+        { id: 2, label: "medium" },
+        { id: 3, label: "large" },
+      ],
+      rods: [
+        { id: 1, stack: [], label: "left" },
+        { id: 2, stack: [], label: "middle" },
+        { id: 3, stack: [], label: "right" },
+      ]
     }
   }
 
@@ -39,7 +47,11 @@ export class Game extends Component {
           afterOpenModal={this.handleAfterOpenModal}
           requestCloseModal={this.handleRequestCloseModal}
         />
-        <GameGrid toggleModal={this.handleToggleModal} />
+        <GameGrid
+          toggleModal={this.handleToggleModal} 
+          disks={disks}
+          rods={rods}
+        />
       </div>
     );
   }
