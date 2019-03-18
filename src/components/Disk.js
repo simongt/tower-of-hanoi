@@ -10,13 +10,16 @@ class Disk extends Component {
         style={{
           zIndex: "2",
           width: `${width}rem`,
+          marginLeft: `-${id}rem`,
           height: "3vh",
-          boxShadow: "inset 0 0 0.5rem 1px black"
+          borderRadius: "1em",
+          boxShadow: "inset 0 0 1rem 0.1rem black",
+          background: `rgba(244, ${209 - id * ((209 - 66) / 9)}, 66, 1)`,
         }}
       >
         {label}
       </div>
-    )
+    );
   }
 }
 
