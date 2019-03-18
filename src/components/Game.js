@@ -6,7 +6,7 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: false,
+      showModal: true,
       disks: [
         { id: 1, tower: {}, label: "small" },
         { id: 2, tower: {}, label: "medium" },
