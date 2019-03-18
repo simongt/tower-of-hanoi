@@ -67,12 +67,12 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
 
 ## Dependencies
 
-| Dependency | Link |
+| API | Description |
 |:-|:-|
-| react-modal | https://reactcommunity.org/react-modal/ |
-| react-dnd | https://react-dnd.github.io/react-dnd/ |
-| gh-pages | https://pages.github.com/ |
-| | |
+| [react-modal](https://reactcommunity.org/react-modal/) | Accessible modal dialog component for React. |
+| [react-dnd](https://react-dnd.github.io/react-dnd/) | Set of higher-order components for React that help build complex drag-and-drop interfaces while keeping components decoupled. |
+| [react-dnd-html5-backend](https://github.com/react-dnd/react-dnd-html5-backend/) | Official HTML5 backend for React DnD. |
+| [gh-pages](https://pages.github.com/) | Deployment tool that publishes GitHub repo as a static website directly to GitHub Pages. |
 
 <details>
 <summary>This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.
