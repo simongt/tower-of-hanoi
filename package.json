@@ -1,6 +1,7 @@
 {
   "name": "towers-of-hanoi",
   "version": "0.1.0",
+  "homepage": "https://simongt.github.io/towers-of-hanoi/",
   "private": true,
   "dependencies": {
     "gh-pages": "^2.0.1",

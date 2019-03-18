@@ -5,12 +5,13 @@ class Disk extends Component {
     const { id } = this.props.disk;
     // widths are in rem: tower is 3, add 1rem to each side per disk id
     const width = id + 3; // disk widths: 5rem, 7, 9... 21rem
+    const green = 200 - id * ((200 - 36) / 9);
     return (
       <div
         style={{
           zIndex: "2",
           width: `${width}rem`,
-          marginLeft: `-${id/2}rem`,
+          marginLeft: `calc(-${id/2}rem - 1px)`,
           height: "3vh",
           borderRadius: "1em",
           border: "1px solid black",
