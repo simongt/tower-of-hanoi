@@ -17,9 +17,7 @@ class Disk extends Component {
           // green range: 209 (yellow-er) to 66 (red-er), increment for 9 disks
           background: `rgba(244, ${209 - id * ((209 - 66) / 9)}, 66, 1)`,
         }}
-      >
-        {label}
-      </div>
+      />
     );
   }
 }
