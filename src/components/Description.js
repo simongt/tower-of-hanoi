@@ -15,6 +15,7 @@ const Description = props => (
   >
     <div style={{ display: "flex", justifyContent: "space-between" }}>
       <h2 style={{ fontSize: "2em", marginBottom: "0.25em" }}>{"Objective"}</h2>
+      {/* X button in top-right corner of modal */}
       <button 
         onClick={event => props.toggleModal(event)} 
         style={{
@@ -32,6 +33,7 @@ const Description = props => (
         "Drag-and-drop the disks from the first rod onto the second and third rods, in such a way that the disks are eventually stacked in ascending order (on either the second or third rod), resembling a conical shape. Only the upper-most disk from any rod can be moved at a time to another rod. No larger disk may be placed on top of a smaller disk."
       }
     </p>
+    {/* wide close button along bottom of modal */}
     <button
       onClick={event => props.toggleModal(event)}
       style={{

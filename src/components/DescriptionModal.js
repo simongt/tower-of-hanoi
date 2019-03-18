@@ -11,7 +11,8 @@ const DescriptionModal = props => (
     onRequestClose={props.requestCloseModal}
     style={{
       overlay: {
-        background: "rgba(0, 0, 0, 0.75)"
+        background: "rgba(0, 0, 0, 0.75)",
+        zIndex: "3"
       },
       content: {
         margin: "0",

@@ -6,12 +6,8 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: true,
-      disks: [
-        { id: 1, label: "small" },
-        { id: 2, label: "medium" },
-        { id: 3, label: "large" },
-      ],
+      showModal: false,
+      disks: [],
       rods: [
         { id: 1, stack: [], label: "left" },
         { id: 2, stack: [], label: "middle" },
@@ -37,6 +33,28 @@ class Game extends Component {
     console.log(event);
   };
 
+  componentDidMount = () => {
+    // initial config: all disks are stacked on left rod
+    this.setState(prevState => ({
+      disks: [
+        { id: 1, tower: prevState.rods[0], label: "small" },
+        { id: 2, tower: prevState.rods[0], label: "medium" },
+        { id: 3, tower: prevState.rods[0], label: "large" },
+        { id: 4, tower: prevState.rods[0], label: "x-large" },
+        { id: 5, tower: prevState.rods[0], label: "2x-large" },
+        { id: 6, tower: prevState.rods[0], label: "3x-large" },
+        { id: 7, tower: prevState.rods[0], label: "4x-large" },
+        { id: 8, tower: prevState.rods[0], label: "5x-large" },
+        { id: 9, tower: prevState.rods[0], label: "6x-large" },
+      ],
+      rods: [
+        { id: 1, stack: [...prevState.disks], label: "left" },
+        { id: 2, stack: [], label: "middle" },
+        { id: 3, stack: [], label: "right" },
+      ],
+    }));
+  }
+
   render() {
     const { showModal, disks, rods } = this.state;
     return (
@@ -48,7 +66,7 @@ class Game extends Component {
           requestCloseModal={this.handleRequestCloseModal}
         />
         <GameGrid
-          toggleModal={this.handleToggleModal} 
+          toggleModal={this.handleToggleModal}
           disks={disks}
           rods={rods}
         />
