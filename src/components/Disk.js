@@ -10,7 +10,7 @@ class Disk extends Component {
         style={{
           zIndex: "2",
           width: `${width}rem`,
-          height: "1rem",
+          height: "3vh",
           boxShadow: "inset 0 0 0.5rem 1px black"
         }}
       >

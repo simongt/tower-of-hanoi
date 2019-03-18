@@ -1,26 +1,9 @@
 import React, { Component } from 'react';
-import Disk from "./Disk"
+import Tower from "./Tower";
 
 export class GameGrid extends Component {
   render() {
-    const rodStyle = {
-      background: `
-        linear-gradient(
-          to bottom,
-          rgba(255, 204, 0, 1),
-          rgba(241, 91, 49, 0.9),
-          rgba(252,40, 93, 0.75),
-          rgba(0, 0, 0, 0.4)
-        )
-      `,
-      border: "solid black",
-      borderWidth: "1px 1px 0px 1px",
-      borderRadius: "1.5rem 1.5rem 0 0"
-    };
-    const rodGapStyle = {
-      borderBottom: "1px solid black",
-    };
-    const { disks, rods } = this.props;
+    const { rods } = this.props;
     return (
       <div style={{ 
         display: "grid",
@@ -38,18 +21,18 @@ export class GameGrid extends Component {
             justifyItems: "stretch"
           }}
         >
+          {/* {rods.map(rod => (
+            <Tower key={rod.id} disks={rod.stack} />
+          ))} */}
           {/* emmet shorthand: .item.item${$}*7 */}
-          <div style={rodGapStyle} />
-          <div style={rodStyle} />
-          <div style={rodGapStyle} />
-          <div style={rodStyle} />
-          <div style={rodGapStyle} />
-          <div style={rodStyle} />
-          <div style={rodGapStyle} />
+          <div style={{ borderBottom: "1px solid black" }} />
+          <Tower key={rods[0].id} />
+          <div style={{ borderBottom: "1px solid black" }} />
+          <Tower key={rods[1].id} />
+          <div style={{ borderBottom: "1px solid black" }} />
+          <Tower key={rods[2].id} />
+          <div style={{ borderBottom: "1px solid black" }} />
         </div>
-        {/* {disks.map(disk => (
-          <Disk disk={disk} />
-        ))} */}
       </div>
     );
   }
