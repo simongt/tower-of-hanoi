@@ -17,12 +17,13 @@ const Description = props => (
       <h2 style={{ fontSize: "2em", marginBottom: "0.25em" }}>{"Objective"}</h2>
       <button 
         onClick={event => props.toggleModal(event)} 
-        style={{ 
+        style={{
+          display: "none",
           background: "none", 
           outline: "none",
           padding: "0 2em",
           margin: "-2.25em -2.25em 0 0",
-          fontWeight: "900"
+          fontWeight: "100"
         }}>
         {"X"}
       </button>
@@ -32,6 +33,19 @@ const Description = props => (
         "Drag-and-drop the disks from the first rod onto the second and third rods, in such a way that the disks are eventually stacked in ascending order (on either the second or third rod), resembling a conical shape. Only the upper-most disk from any rod can be moved at a time to another rod. No larger disk may be placed on top of a smaller disk."
       }
     </p>
+    <button
+      onClick={event => props.toggleModal(event)}
+      style={{
+        background: "rgba(0, 0, 0, 0.1)",
+        border: "1px solid white",
+        outline: "none",
+        padding: "0.5em",
+        marginTop: "1em",
+        fontWeight: "900",
+        textTransform: "uppercase"
+      }}>
+      {"Close"}
+    </button>
   </div>
 );
 
