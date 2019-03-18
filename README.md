@@ -39,7 +39,9 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
 
 2. Implement component(s) for disks and their mechanics, e.g. drag-and-drop feature.
    * Upon release, lock to nearest standing tower and drop to the bottom.
-     * Use [SyntheticEvent](https://reactjs.org/docs/events.html) wrappers to handle drag-and-drop.
+     * Consider using [react-dnd](https://github.com/react-dnd/react-dnd/)'s API to handle drag-and-drop for non-touch devices.
+     * Since native drag-and-drop is not yet supported on touch devices, consider using Yahoo's [touch back-end](https://github.com/yahoo/react-dnd-touch-backend/) for [react-dnd](https://github.com/react-dnd/react-dnd). ***Post-MVP***
+     * Consider using [SyntheticEvent](https://reactjs.org/docs/events.html/) wrappers to handle drag-and-drop without using an external API. ***Post-MVP***
    * Generate at least three disks stacked on the first tower.
      * Implement difficulty levels according to the number of disks, where the user can select a starting number of disks (the minimum / default is 3).
 
@@ -77,6 +79,7 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
 | [react-modal](https://reactcommunity.org/react-modal/) | Accessible modal dialog component for React. |
 | [react-dnd](https://react-dnd.github.io/react-dnd/) | Set of higher-order components for React that help build complex drag-and-drop interfaces. |
 | [react-dnd-html5-backend](http://react-dnd.github.io/react-dnd/docs/backends/html5) | Official HTML5 backend for React DnD. [No longer a required peer dependency](https://github.com/react-dnd/react-dnd/releases/tag/v4.0.6) as it is currently legacy and has been integrated into [react-dnd](https://react-dnd.github.io/react-dnd/). |
+| [react-dnd-touch-backend](https://github.com/yahoo/react-dnd-touch-backend) | Touch back-end for [react-dnd](https://react-dnd.github.io/react-dnd/) (since native drag-and-drop is not currently supported in touch devices). |
 
 <details>
 <summary>This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.
