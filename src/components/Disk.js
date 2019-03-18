@@ -14,6 +14,7 @@ class Disk extends Component {
           height: "3vh",
           borderRadius: "1em",
           boxShadow: "inset 0 0 1rem 0.1rem black",
+          // green range: 209 (yellow-er) to 66 (red-er), increment for 9 disks
           background: `rgba(244, ${209 - id * ((209 - 66) / 9)}, 66, 1)`,
         }}
       >
