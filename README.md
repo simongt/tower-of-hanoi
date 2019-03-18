@@ -28,15 +28,16 @@ Before attempting to code the solution, my first step is break the problem down 
 
 Here is my implementation overview (along with an ongoing post-MVP backlog):
 
-1. Implement a responsive, grid system.
+1. Implement a responsive, grid system and add minimal styling.
    * Build a 24-column grid with a floor base and three standing towers.
      <details>
      <summary>Grid Mockup (Diagram)</summary>
      <img src="./public/img/towers-of-hanoi-grid-mockup-1.jpg" alt="Grid Mockup">
      </details> 
-   * Integrate with [SASS](https://sass-lang.com/) to handle styling. ***Post-MVP***
+   * Integrate with [SASS](https://sass-lang.com/) to handle CSS styling. ***Post-MVP***
+   * Integrate with [Styled Components](https://www.styled-components.com/) to handle React component styling. ***Post-MVP***
 
-2. Implement component(s) for disks and their mechanics, e.g. drag-and-drop feature. 
+2. Implement component(s) for disks and their mechanics, e.g. drag-and-drop feature.
    * Upon release, lock to nearest standing tower and drop to the bottom.
      * Use [SyntheticEvent](https://reactjs.org/docs/events.html) wrappers to handle drag-and-drop.
    * Generate at least three disks stacked on the first tower.
@@ -69,10 +70,13 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
 
 | API | Description |
 |:-|:-|
-| [react-modal](https://reactcommunity.org/react-modal/) | Accessible modal dialog component for React. |
-| [react-dnd](https://react-dnd.github.io/react-dnd/) | Set of higher-order components for React that help build complex drag-and-drop interfaces while keeping components decoupled. |
-| [react-dnd-html5-backend](https://github.com/react-dnd/react-dnd-html5-backend/) | Official HTML5 backend for React DnD. |
 | [gh-pages](https://pages.github.com/) | Deployment tool that publishes GitHub repo as a static website directly to GitHub Pages. |
+| [styled-components](https://www.styled-components.com/) | Styling tool that utilizes tagged template literals and the power of CSS for writing actual CSS code to style components. |
+| [node-sass](https://sass-lang.com/) | An extension of CSS that adds power and elegance to it. It allows you to use variables, nested rules, mixins and inline imports. |
+| [react-redux](https://react-redux.js.org/) | Official React bindings for Redux. Performant and flexible. |
+| [react-modal](https://reactcommunity.org/react-modal/) | Accessible modal dialog component for React. |
+| [react-dnd](https://react-dnd.github.io/react-dnd/) | Set of higher-order components for React that help build complex drag-and-drop interfaces. |
+| [react-dnd-html5-backend](http://react-dnd.github.io/react-dnd/docs/backends/html5) | Official HTML5 backend for React DnD. Currently depracated (integrated into [react-dnd](https://react-dnd.github.io/react-dnd/)). |
 
 <details>
 <summary>This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.
