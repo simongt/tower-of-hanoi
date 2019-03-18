@@ -5,11 +5,11 @@
 
 ## Game Objective
 
-Towers of Hanoi consists of three rods and at least three disks of different sizes, which can slide onto any rod. The puzzle starts with the disks in a neat stack in ascending order of size on one rod, the smallest at the top, thus making a conical shape.
+Towers of Hanoi consists of three towers and at least three disks of different sizes, which can slide onto any tower. The puzzle starts with the disks in a neat stack in ascending order of size on one tower, the smallest at the top, thus making a conical shape.
 
-The objective of the puzzle is to move the stack to another rod following these simple rules:
+The objective of the puzzle is to move the stack to another tower following these simple rules:
 * Only one disk can be moved at a time.
-* Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack or on an empty rod.
+* Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack or on an empty tower.
 * No larger disk may be placed on top of a smaller disk.
 
 <p align="center">
@@ -29,7 +29,7 @@ Before attempting to code the solution, my first step is break the problem down 
 Here is my implementation overview (along with an ongoing post-MVP backlog):
 
 1. Implement a responsive, grid system.
-   * Build a 24-column grid with a floor base and three standing rods.
+   * Build a 24-column grid with a floor base and three standing towers.
      <details>
      <summary>Grid Mockup (Diagram)</summary>
      <img src="./public/img/towers-of-hanoi-grid-mockup-1.jpg" alt="Grid Mockup">
@@ -37,19 +37,19 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
    * Integrate with [SASS](https://sass-lang.com/) to handle styling. ***Post-MVP***
 
 2. Implement component(s) for disks and their mechanics, e.g. drag-and-drop feature. 
-   * Upon release, lock to nearest standing rod and drop to the bottom.
+   * Upon release, lock to nearest standing tower and drop to the bottom.
      * Use [SyntheticEvent](https://reactjs.org/docs/events.html) wrappers to handle drag-and-drop.
-   * Generate at least three disks stacked on the first rod.
+   * Generate at least three disks stacked on the first tower.
      * Implement difficulty levels according to the number of disks, where the user can select a starting number of disks (the minimum / default is 3).
 
 3. Implement gameplay logic.
-   * Only the upper (top-most) disk from any rod can be moved.
+   * Only the upper (top-most) disk from any tower can be moved.
    * Allow only valid moves:
-     * a disk may be dropped over a larger disk within another rod,
-     * or a disk may be dropped into an empty rod (containing no disks).
-   * Game is won when disks are stacked conically on either the second or third rod (the first rod is empty).
+     * a disk may be dropped over a larger disk within another tower,
+     * or a disk may be dropped into an empty tower (containing no disks).
+   * Game is won when disks are stacked conically on either the second or third tower (the first tower is empty).
      * Implement an option to continue to next difficulty level (add one more disk). ***Post-MVP***
-   * Implement a restart button to move all the disks back to the first rod and reset number of moves played for the round so far. ***Post-MVP***
+   * Implement a restart button to move all the disks back to the first tower and reset number of moves played for the round so far. ***Post-MVP***
 
 4. Implement an AI logic component. ***Post-MVP***
    * Compare algorithms for any number of disks.
@@ -97,8 +97,8 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for ptoweruction to the `build` folder.<br>
+It correctly bundles React in ptoweruction mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!

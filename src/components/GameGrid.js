@@ -3,9 +3,7 @@ import Tower from "./Tower";
 
 export class GameGrid extends Component {
   render() {
-    const { rods } = this.props;
-    console.log(rods);
-    
+    const { towers } = this.props;
     return (
       <div
         style={{
@@ -14,7 +12,7 @@ export class GameGrid extends Component {
           alignItems: "end"
         }}
       >
-        {/* three rods have fixed width of 3rem */}
+        {/* three towers with a fixed width of 3rem */}
         <div
           style={{
             zIndex: "1",
@@ -25,16 +23,12 @@ export class GameGrid extends Component {
             justifyItems: "stretch",
           }}
         >
-          {/* {rods.map(rod => (
-            <Tower key={rod.id} disks={rod.stack} />
-          ))} */}
-          {/* emmet shorthand: .item.item${$}*7 */}
           <div style={{ borderBottom: "1px solid black" }} />
-          <Tower key={rods[0].id} disks={rods[0].stack} />
+          <Tower key={towers[0].id} disks={towers[0].stack} />
           <div style={{ borderBottom: "1px solid black" }} />
-          <Tower key={rods[1].id} disks={rods[1].stack} />
+          <Tower key={towers[1].id} disks={towers[1].stack} />
           <div style={{ borderBottom: "1px solid black" }} />
-          <Tower key={rods[2].id} disks={rods[2].stack} />
+          <Tower key={towers[2].id} disks={towers[2].stack} />
           <div style={{ borderBottom: "1px solid black" }} />
         </div>
       </div>

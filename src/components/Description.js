@@ -30,7 +30,7 @@ const Description = props => (
     </div>
     <p style={{ fontSize: "1em", textAlign: "justify" }}>
       {
-        "Drag-and-drop the disks from the first rod onto the second and third rods, in such a way that the disks are eventually stacked in ascending order (on either the second or third rod), resembling a conical shape. Only the upper-most disk from any rod can be moved at a time to another rod. No larger disk may be placed on top of a smaller disk."
+        "Drag-and-drop the disks from the first tower onto the second and third towers, in such a way that the disks are eventually stacked in ascending order (on either the second or third tower), resembling a conical shape. Only the upper-most disk from any tower can be moved at a time to another tower. No larger disk may be placed on top of a smaller disk."
       }
     </p>
     {/* wide close button along bottom of modal */}
