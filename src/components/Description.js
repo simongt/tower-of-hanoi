@@ -18,7 +18,6 @@ const Description = props => (
       <button 
         onClick={event => props.toggleModal(event)} 
         style={{
-          display: "none",
           background: "none", 
           outline: "none",
           padding: "0 2em",
