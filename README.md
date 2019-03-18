@@ -76,7 +76,7 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
 | [react-redux](https://react-redux.js.org/) | Official React bindings for Redux. Performant and flexible. |
 | [react-modal](https://reactcommunity.org/react-modal/) | Accessible modal dialog component for React. |
 | [react-dnd](https://react-dnd.github.io/react-dnd/) | Set of higher-order components for React that help build complex drag-and-drop interfaces. |
-| [react-dnd-html5-backend](http://react-dnd.github.io/react-dnd/docs/backends/html5) | Official HTML5 backend for React DnD. Currently depracated (integrated into [react-dnd](https://react-dnd.github.io/react-dnd/)). |
+| [react-dnd-html5-backend](http://react-dnd.github.io/react-dnd/docs/backends/html5) | Official HTML5 backend for React DnD. [No longer a required peer dependency](https://github.com/react-dnd/react-dnd/releases/tag/v4.0.6) as it is currently legacy and has been integrated into [react-dnd](https://react-dnd.github.io/react-dnd/). |
 
 <details>
 <summary>This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.
