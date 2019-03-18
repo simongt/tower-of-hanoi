@@ -43,7 +43,7 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
      * Since native drag-and-drop is not yet supported on touch devices, consider using Yahoo's [touch back-end](https://github.com/yahoo/react-dnd-touch-backend/) for [react-dnd](https://github.com/react-dnd/react-dnd). ***Post-MVP***
      * Consider using [SyntheticEvent](https://reactjs.org/docs/events.html/) wrappers to handle drag-and-drop without using an external API. ***Post-MVP***
    * Generate at least three disks stacked on the first tower.
-     * Implement difficulty levels according to the number of disks, where the user can select a starting number of disks (the minimum / default is 3).
+     * Implement difficulty levels according to the number of disks, where the user can select a starting number of disks (the minimum / default is 3). ***Post-MVP***
 
 3. Implement gameplay logic.
    * Only the upper (top-most) disk from any tower can be moved.
@@ -52,7 +52,10 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
      * or a disk may be dropped into an empty tower (containing no disks).
    * Game is won when disks are stacked conically on either the second or third tower (the first tower is empty).
      * Implement an option to continue to next difficulty level (add one more disk). ***Post-MVP***
-   * Implement a restart button to move all the disks back to the first tower and reset number of moves played for the round so far. ***Post-MVP***
+   * Implement buttons:
+     1. plus / minus buttons to increment / decrement number of playable disks, ***Post-MVP***
+     2. an undo button to move the most recently moved disk back to its previous tower, and a... ***Post-MVP***
+     3. restart button to move all the disks back to the first tower while resetting number of moves played for the round so far. ***Post-MVP***
 
 4. Implement an AI logic component. ***Post-MVP***
    * Compare algorithms for any number of disks.
