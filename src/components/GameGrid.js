@@ -5,11 +5,13 @@ export class GameGrid extends Component {
   render() {
     const { rods } = this.props;
     return (
-      <div style={{ 
-        display: "grid",
-        justifyItems: "stretch",
-        alignItems: "end",
-      }}>
+      <div
+        style={{
+          display: "grid",
+          justifyItems: "stretch",
+          alignItems: "end"
+        }}
+      >
         {/* three rods have fixed width of 3rem */}
         <div
           style={{
@@ -26,11 +28,11 @@ export class GameGrid extends Component {
           ))} */}
           {/* emmet shorthand: .item.item${$}*7 */}
           <div style={{ borderBottom: "1px solid black" }} />
-          <Tower key={rods[0].id} />
+          <Tower key={rods[0].id} disks={rods[0].stack} />
           <div style={{ borderBottom: "1px solid black" }} />
-          <Tower key={rods[1].id} />
+          <Tower key={rods[1].id} disks={rods[1].stack} />
           <div style={{ borderBottom: "1px solid black" }} />
-          <Tower key={rods[2].id} />
+          <Tower key={rods[2].id} disks={rods[2].stack} />
           <div style={{ borderBottom: "1px solid black" }} />
         </div>
       </div>
