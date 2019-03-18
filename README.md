@@ -36,6 +36,7 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
      </details> 
    * Integrate with [SASS](https://sass-lang.com/) to handle CSS styling. ***Post-MVP***
    * Integrate with [Styled Components](https://www.styled-components.com/) to handle React component styling. ***Post-MVP***
+   * Improve header styling and landing view (fade header in, then footer and towers in, finally drop disks into first tower). ***Post-MVP***
 
 2. Implement component(s) for disks and their mechanics, e.g. drag-and-drop feature.
    * Upon release, lock to nearest standing tower and drop to the bottom.
