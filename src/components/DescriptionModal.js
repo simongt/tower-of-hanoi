@@ -20,7 +20,8 @@ const DescriptionModal = props => (
         outline: "none",
         border: "none",
         display: "flex",
-        alignItems: "center"
+        alignItems: "center",
+        justifyContent: "center"
       }
     }}
     shouldFocusAfterRender={true}

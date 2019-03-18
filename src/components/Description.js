@@ -3,6 +3,7 @@ import React from "react";
 const Description = props => (
   <div
     style={{
+      maxWidth: "23rem",
       display: "flex",
       flexFlow: "column nowrap",
       margin: "1em",
