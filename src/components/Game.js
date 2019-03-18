@@ -7,13 +7,23 @@ class Game extends Component {
     super(props);
     this.state = {
       showModal: false,
-      disks: [],
+      disks: [
+        { id: 1, tower: {}, label: "small" },
+        { id: 2, tower: {}, label: "medium" },
+        { id: 3, tower: {}, label: "large" },
+        { id: 4, tower: {}, label: "x-large" },
+        { id: 5, tower: {}, label: "2x-large" },
+        { id: 6, tower: {}, label: "3x-large" },
+        { id: 7, tower: {}, label: "4x-large" },
+        { id: 8, tower: {}, label: "5x-large" },
+        { id: 9, tower: {}, label: "6x-large" }
+      ],
       rods: [
         { id: 1, stack: [], label: "left" },
         { id: 2, stack: [], label: "middle" },
-        { id: 3, stack: [], label: "right" },
+        { id: 3, stack: [], label: "right" }
       ]
-    }
+    };
   }
 
   handleToggleModal = () => {
@@ -48,7 +58,7 @@ class Game extends Component {
         { id: 9, tower: prevState.rods[0], label: "6x-large" },
       ],
       rods: [
-        { id: 1, stack: [...prevState.disks], label: "left" },
+        { id: 1, stack: [...(prevState.disks)], label: "left" },
         { id: 2, stack: [], label: "middle" },
         { id: 3, stack: [], label: "right" },
       ],

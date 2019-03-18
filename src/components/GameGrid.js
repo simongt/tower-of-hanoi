@@ -4,6 +4,8 @@ import Tower from "./Tower";
 export class GameGrid extends Component {
   render() {
     const { rods } = this.props;
+    console.log(rods);
+    
     return (
       <div
         style={{
