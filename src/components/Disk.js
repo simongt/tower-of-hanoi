@@ -4,13 +4,13 @@ class Disk extends Component {
   render() {
     const { id } = this.props.disk;
     // widths are in rem: rod is 3, add 1rem to each side per disk id
-    const width = (2 * id) + 3; // disk widths: 5rem, 7, 9... 21rem
+    const width = id + 3; // disk widths: 5rem, 7, 9... 21rem
     return (
       <div
         style={{
           zIndex: "2",
           width: `${width}rem`,
-          marginLeft: `-${id}rem`,
+          marginLeft: `-${id/2}rem`,
           height: "3vh",
           borderRadius: "1em",
           border: "1px solid black",

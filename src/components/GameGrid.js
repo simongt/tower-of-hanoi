@@ -21,10 +21,8 @@ export class GameGrid extends Component {
             display: "grid",
             gridTemplateColumns: "repeat(3, auto 3rem) auto",
             textAlign: "center",
-            height: "30vh",
+            height: "33vh",
             justifyItems: "stretch",
-            // alignContent: "end",
-            // alignItems: "stretch"
           }}
         >
           {/* {rods.map(rod => (
