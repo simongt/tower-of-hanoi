@@ -1,48 +1,41 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Tower from "./Tower";
 
 export class GameGrid extends Component {
   render() {
-    const rodStyle = {
-      background: `
-        linear-gradient(
-          to top,
-          rgba(0, 0, 0, 0.4),
-          rgba(252,40, 93, 0.75),
-          rgba(241, 91, 49, 0.9),
-          rgba(255, 204, 0, 1)
-        )
-      `,
-      border: "1px solid rgba(0, 0, 0, 0.9)",
-      borderBottom: "transparent",
-      borderRadius: "1.5rem 1.5rem 0 0",
-    };
-    const rodGapStyle = {
-      borderBottom: "1px solid black",
-    };
+    const { rods } = this.props;
+    console.log(rods);
+    
     return (
-      <div style={{ 
-        display: "grid",
-        justifyItems: "stretch",
-        alignItems: "end",
-      }}>
+      <div
+        style={{
+          display: "grid",
+          justifyItems: "stretch",
+          alignItems: "end"
+        }}
+      >
         {/* three rods have fixed width of 3rem */}
         <div
           style={{
+            zIndex: "1",
             display: "grid",
             gridTemplateColumns: "repeat(3, auto 3rem) auto",
             textAlign: "center",
-            height: "25vh",
-            justifyItems: "stretch"
+            height: "33vh",
+            justifyItems: "stretch",
           }}
         >
+          {/* {rods.map(rod => (
+            <Tower key={rod.id} disks={rod.stack} />
+          ))} */}
           {/* emmet shorthand: .item.item${$}*7 */}
-          <div style={rodGapStyle} />
-          <div style={rodStyle} />
-          <div style={rodGapStyle} />
-          <div style={rodStyle} />
-          <div style={rodGapStyle} />
-          <div style={rodStyle} />
-          <div style={rodGapStyle} />
+          <div style={{ borderBottom: "1px solid black" }} />
+          <Tower key={rods[0].id} disks={rods[0].stack} />
+          <div style={{ borderBottom: "1px solid black" }} />
+          <Tower key={rods[1].id} disks={rods[1].stack} />
+          <div style={{ borderBottom: "1px solid black" }} />
+          <Tower key={rods[2].id} disks={rods[2].stack} />
+          <div style={{ borderBottom: "1px solid black" }} />
         </div>
       </div>
     );

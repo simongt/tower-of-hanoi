@@ -3,10 +3,9 @@ import React from 'react';
 const Footer = props => (
   <footer
     style={{
-      paddingTop: "0.5em",
       display: "flex",
       justifyContent: "center",
-      alignItems: "flex-start",
+      alignItems: "center",
       background: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8))"
     }}
   >
