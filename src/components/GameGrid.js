@@ -9,7 +9,10 @@ export class GameGrid extends Component {
         style={{
           display: "grid",
           justifyItems: "stretch",
-          alignItems: "end"
+          alignItems: "end",
+          minWidth: "960px", // TO-DO: responsivize
+          minHeight: "540px", // TO-DO: responsivize
+
         }}
       >
         {/* three towers with a fixed width of 3rem */}
@@ -17,10 +20,10 @@ export class GameGrid extends Component {
           style={{
             zIndex: "1",
             display: "grid",
-            gridTemplateColumns: "repeat(3, auto 3rem) auto",
+            gridTemplateColumns: "repeat(3, auto 2rem) auto",
             textAlign: "center",
             height: "33vh",
-            justifyItems: "stretch",
+            justifyItems: "stretch"
           }}
         >
           <div style={{ borderBottom: "1px solid black" }} />

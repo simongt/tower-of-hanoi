@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class Disk extends Component {
   render() {
     const { id } = this.props.disk;
-    // widths are in rem: tower is 3, add 1rem to each side per disk id
-    const width = id + 3; // disk widths: 5rem, 7, 9... 21rem
+    // widths are in rem: tower is 2, add 1rem to each side per disk id
+    const width = id + 2; // disk widths: 5rem, 7, 9... 21rem
     const green = 200 - id * ((200 - 36) / 9);
     return (
       <div

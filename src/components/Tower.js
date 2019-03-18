@@ -15,7 +15,7 @@ class Tower extends Component {
       `,
       border: "solid black",
       borderWidth: "1px 1px 0px 1px",
-      borderRadius: "1.5rem 1.5rem 0 0",
+      borderRadius: "0.75rem 0.75rem 0 0",
       display: "grid",
       alignItems: "end",
       alignContent: "end" 

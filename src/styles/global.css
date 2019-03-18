@@ -17,11 +17,13 @@
 }
 
 html, body {
-  background:
-    linear-gradient(to right bottom,
-    hsla(256, 75%, 25%, 1),
-    hsla(256, 75%, 50%, 1),
-    hsla(345, 75%, 55%, 1));
+  background: hsla(256, 75%, 25%, 1);
+  background-image:
+    linear-gradient(to bottom right,
+    hsla(15, 75%, 55%, 1),
+    hsla(345, 75%, 55%, 1),
+    hsla(256, 66%, 50%, 1),
+    hsla(256, 75%, 25%, 1));
   min-height: 100vh;
   max-height: 100vh;
   min-width: 100vw;
