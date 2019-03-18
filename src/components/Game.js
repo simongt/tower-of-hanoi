@@ -38,7 +38,7 @@ class Game extends Component {
   };
 
   render() {
-    const { showModal } = this.state;
+    const { showModal, disks, rods } = this.state;
     return (
       <div className="Game" style={{ display: "grid" }}>
         <DescriptionModal
