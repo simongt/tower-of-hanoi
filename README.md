@@ -28,19 +28,23 @@ Before attempting to code the solution, my first step is break the problem down 
 
 Here is my implementation overview (along with an ongoing post-MVP backlog):
 
-1. Implement a responsive, grid system.
+1. Implement a responsive, grid system and add minimal styling.
    * Build a 24-column grid with a floor base and three standing towers.
      <details>
      <summary>Grid Mockup (Diagram)</summary>
      <img src="./public/img/towers-of-hanoi-grid-mockup-1.jpg" alt="Grid Mockup">
      </details> 
-   * Integrate with [SASS](https://sass-lang.com/) to handle styling. ***Post-MVP***
+   * Integrate with [SASS](https://sass-lang.com/) to handle CSS styling. ***Post-MVP***
+   * Integrate with [Styled Components](https://www.styled-components.com/) to handle React component styling. ***Post-MVP***
+   * Improve header styling and landing view (fade header in, then footer and towers in, finally drop disks into first tower). ***Post-MVP***
 
-2. Implement component(s) for disks and their mechanics, e.g. drag-and-drop feature. 
+2. Implement component(s) for disks and their mechanics, e.g. drag-and-drop feature.
    * Upon release, lock to nearest standing tower and drop to the bottom.
-     * Use [SyntheticEvent](https://reactjs.org/docs/events.html) wrappers to handle drag-and-drop.
+     * Consider using [react-dnd](https://github.com/react-dnd/react-dnd/)'s API to handle drag-and-drop for non-touch devices.
+     * Since native drag-and-drop is not yet supported on touch devices, consider using Yahoo's [touch back-end](https://github.com/yahoo/react-dnd-touch-backend/) for [react-dnd](https://github.com/react-dnd/react-dnd). ***Post-MVP***
+     * Consider using [SyntheticEvent](https://reactjs.org/docs/events.html/) wrappers to handle drag-and-drop without using an external API. ***Post-MVP***
    * Generate at least three disks stacked on the first tower.
-     * Implement difficulty levels according to the number of disks, where the user can select a starting number of disks (the minimum / default is 3).
+     * Implement difficulty levels according to the number of disks, where the user can select a starting number of disks (the minimum / default is 3). ***Post-MVP***
 
 3. Implement gameplay logic.
    * Only the upper (top-most) disk from any tower can be moved.
@@ -49,7 +53,10 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
      * or a disk may be dropped into an empty tower (containing no disks).
    * Game is won when disks are stacked conically on either the second or third tower (the first tower is empty).
      * Implement an option to continue to next difficulty level (add one more disk). ***Post-MVP***
-   * Implement a restart button to move all the disks back to the first tower and reset number of moves played for the round so far. ***Post-MVP***
+   * Implement buttons:
+     1. plus / minus buttons to increment / decrement number of playable disks, ***Post-MVP***
+     2. an undo button to move the most recently moved disk back to its previous tower, and a... ***Post-MVP***
+     3. restart button to move all the disks back to the first tower while resetting number of moves played for the round so far. ***Post-MVP***
 
 4. Implement an AI logic component. ***Post-MVP***
    * Compare algorithms for any number of disks.
@@ -65,14 +72,51 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
 
 ---
 
+## React DND
+
+<!-- <details> -->
+<summary>
+Notes from <a href="https://www.youtube.com/watch?v=930JPFaKg-s">Andre Madarang's tutorial video</a>.
+</summary>
+<ul>
+<li>
+Install dependencies:<br>
+<code>npm install --save react-dnd react-dnd-html5-backend</code>
+</li>
+<li>
+Three prereqs for this library to work:
+<ol>
+<li>
+Define a context which wraps the entire app and tells the app that things are <em>draggable</em>.
+</li>
+<li>
+Define which things are <em>draggable</em> (i.e. <strong>sources</strong>).
+</li>
+<li>
+Define which things are <em>droppable</em> (i.e. <strong>targets</strong>).
+</li>
+</ol>
+</li>
+<li>
+Wrap entire app in a context.
+</li>
+</ol>
+<!-- </details> -->
+
+---
+
 ## Dependencies
 
 | API | Description |
 |:-|:-|
-| [react-modal](https://reactcommunity.org/react-modal/) | Accessible modal dialog component for React. |
-| [react-dnd](https://react-dnd.github.io/react-dnd/) | Set of higher-order components for React that help build complex drag-and-drop interfaces while keeping components decoupled. |
-| [react-dnd-html5-backend](https://github.com/react-dnd/react-dnd-html5-backend/) | Official HTML5 backend for React DnD. |
 | [gh-pages](https://pages.github.com/) | Deployment tool that publishes GitHub repo as a static website directly to GitHub Pages. |
+| [styled-components](https://www.styled-components.com/) | Styling tool that utilizes tagged template literals and the power of CSS for writing actual CSS code to style components. |
+| [node-sass](https://sass-lang.com/) | An extension of CSS that adds power and elegance to it. It allows you to use variables, nested rules, mixins and inline imports. |
+| [react-redux](https://react-redux.js.org/) | Official React bindings for Redux. Performant and flexible. |
+| [react-modal](https://reactcommunity.org/react-modal/) | Accessible modal dialog component for React. |
+| [react-dnd](https://react-dnd.github.io/react-dnd/) | Set of higher-order components for React that help build complex drag-and-drop interfaces. |
+| [react-dnd-html5-backend](http://react-dnd.github.io/react-dnd/docs/backends/html5) | Official HTML5 backend for React DnD. [No longer a required peer dependency](https://github.com/react-dnd/react-dnd/releases/tag/v4.0.6) as it is currently legacy and has been integrated into [react-dnd](https://react-dnd.github.io/react-dnd/). |
+| [react-dnd-touch-backend](https://github.com/yahoo/react-dnd-touch-backend) | Touch back-end for [react-dnd](https://react-dnd.github.io/react-dnd/) (since native drag-and-drop is not currently supported in touch devices). |
 
 <details>
 <summary>This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.

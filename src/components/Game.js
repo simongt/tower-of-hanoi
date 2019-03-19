@@ -4,6 +4,7 @@ import GameGrid from "./GameGrid";
 
 class Game extends Component {
   constructor(props) {
+    console.log("Game --> constructor");
     super(props);
     this.state = {
       showModal: true,
@@ -27,23 +28,24 @@ class Game extends Component {
   }
 
   handleToggleModal = () => {
-    console.log("handleToggleModal");
+    console.log("Game --> handleToggleModal");
     this.setState(prevState => ({
       showModal: !prevState.showModal,
     }));
   }
 
-  handleAfterOpenModal = (event) => {
-    console.log("handleAfterOpenModal");
-    console.log(event);
+  handleAfterOpenModal = () => {
+    console.log("Game --> handleAfterOpenModal");
   };
 
-  handleRequestCloseModal = (event) => {
-    console.log("handleRequestCloseModal");
-    console.log(event);
+  handleRequestCloseModal = () => {
+    console.log("Game --> handleRequestCloseModal");
   };
 
   componentDidMount = () => {
+    console.log("Game --> componentDidMount");
+    console.log("--{ Game render cycle complete }--");
+    
     // initial config: all disks are stacked on left tower
     this.setState(prevState => ({
       disks: [
@@ -65,7 +67,13 @@ class Game extends Component {
     }));
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log("Game --> componentDidUpdate");
+    console.log("--{ Game render cycle complete }--");
+  }
+  
   render() {
+    console.log("Game --> render");
     const { showModal, disks, towers } = this.state;
     return (
       <div className="Game" style={{ display: "grid" }}>

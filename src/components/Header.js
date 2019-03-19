@@ -14,7 +14,7 @@ const Header = props => (
     <h1
       style={{
         color: "rgba(229, 172, 0, 1)",
-        fontSize: "4rem",
+        fontSize: "5rem", // TO-DO: responsivize
         textTransform: "uppercase",
         fontWeight: "100",
         textShadow: "4px 4px 2px rgba(0, 0, 0, 1)"

@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import Disk from "./Disk";
 
 class Tower extends Component {
+  handleDroppedDisk = (id) => {
+    console.log("Tower --> handleDroppedDisk");
+  }
   render() {
     const towerStyle = {
       background: `
@@ -15,18 +18,20 @@ class Tower extends Component {
       `,
       border: "solid black",
       borderWidth: "1px 1px 0px 1px",
-      borderRadius: "1.5rem 1.5rem 0 0",
+      borderRadius: "0.75rem 0.75rem 0 0",
       display: "grid",
       alignItems: "end",
-      alignContent: "end" 
+      alignContent: "end",
     };
     const { disks } = this.props;
-    console.log(disks);
-    
     return (
       <div style={towerStyle}>
         {disks.map(disk => (
-          <Disk key={disk.id} disk={disk} />
+          <Disk 
+            key={disk.id} 
+            disk={disk} 
+            handleDrop={(id) => this.handleDroppedDisk(id)}
+          />
         ))}
       </div>
     )
