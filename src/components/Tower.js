@@ -21,8 +21,6 @@ class Tower extends Component {
       alignContent: "end" 
     };
     const { disks } = this.props;
-    console.log(disks);
-    
     return (
       <div style={towerStyle}>
         {disks.map(disk => (

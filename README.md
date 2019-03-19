@@ -72,6 +72,39 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
 
 ---
 
+## React DND
+
+<!-- <details> -->
+<summary>
+Notes from <a href="https://www.youtube.com/watch?v=930JPFaKg-s">Andre Madarang's tutorial video</a>.
+</summary>
+<ul>
+<li>
+Install dependencies:<br>
+<code>npm install --save react-dnd react-dnd-html5-backend</code>
+</li>
+<li>
+Three prereqs for this library to work:
+<ol>
+<li>
+Define a context which wraps the entire app and tells the app that things are <em>draggable</em>.
+</li>
+<li>
+Define which things are <em>draggable</em> (i.e. <strong>sources</strong>).
+</li>
+<li>
+Define which things are <em>droppable</em> (i.e. <strong>targets</strong>).
+</li>
+</ol>
+</li>
+<li>
+Wrap entire app in a context.
+</li>
+</ol>
+<!-- </details> -->
+
+---
+
 ## Dependencies
 
 | API | Description |

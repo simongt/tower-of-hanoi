@@ -27,20 +27,18 @@ class Game extends Component {
   }
 
   handleToggleModal = () => {
-    console.log("handleToggleModal");
+    console.log("Game --> handleToggleModal");
     this.setState(prevState => ({
       showModal: !prevState.showModal,
     }));
   }
 
-  handleAfterOpenModal = (event) => {
-    console.log("handleAfterOpenModal");
-    console.log(event);
+  handleAfterOpenModal = () => {
+    console.log("Game --> handleAfterOpenModal");
   };
 
-  handleRequestCloseModal = (event) => {
-    console.log("handleRequestCloseModal");
-    console.log(event);
+  handleRequestCloseModal = () => {
+    console.log("Game --> handleRequestCloseModal");
   };
 
   componentDidMount = () => {
