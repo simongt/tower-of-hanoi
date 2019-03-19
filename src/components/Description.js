@@ -14,23 +14,26 @@ const Description = props => (
     }}
   >
     <div style={{ display: "flex", justifyContent: "space-between" }}>
-      <h2 style={{ fontSize: "2rem", marginBottom: "0.25rem" }}>{"Objective"}</h2>
+      <h2 style={{ fontSize: "2rem", marginBottom: "0.25rem" }}>
+        {"Goal"}
+      </h2>
       {/* X button in top-right corner of modal */}
-      <button 
-        onClick={event => props.toggleModal(event)} 
+      <button
+        onClick={event => props.toggleModal(event)}
         style={{
-          background: "none", 
+          background: "none",
           outline: "none",
           padding: "0 2rem",
           margin: "-2.25rem -2.25rem 0 0",
           fontWeight: "100"
-        }}>
+        }}
+      >
         {"X"}
       </button>
     </div>
     <p style={{ fontSize: "1rem", textAlign: "justify" }}>
       {
-        "Drag-and-drop the disks from the first tower onto the second and third towers, in such a way that the disks are eventually stacked in ascending order (on either the second or third tower), resembling a conical shape. Only the upper-most disk from any tower can be moved at a time to another tower. No larger disk may be placed on top of a smaller disk."
+        "The goal of the game is to move all the disks from Tower 1 to Tower 3 without placing a larger disk onto a smaller one. Once the disks are stacked from smallest (top) to largest (bottom) on Tower 3, you win!"
       }
     </p>
     {/* wide close button along bottom of modal */}
@@ -45,7 +48,8 @@ const Description = props => (
         marginTop: "1rem",
         fontWeight: "900",
         textTransform: "uppercase"
-      }}>
+      }}
+    >
       {"Close"}
     </button>
   </div>
