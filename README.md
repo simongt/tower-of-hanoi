@@ -74,7 +74,7 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
 
 ## React DND
 
-<!-- <details> -->
+<details>
 <summary>
 Notes from <a href="https://www.youtube.com/watch?v=930JPFaKg-s">Andre Madarang's tutorial video</a>.
 </summary>
@@ -97,11 +97,8 @@ Define which things are <em>droppable</em> (i.e. <strong>targets</strong>).
 </li>
 </ol>
 </li>
-<li>
-Wrap entire app in a context.
-</li>
-</ol>
-<!-- </details> -->
+</ul>
+</details>
 
 ---
 
