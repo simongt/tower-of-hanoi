@@ -97,10 +97,7 @@ Define which things are <em>droppable</em> (i.e. <strong>targets</strong>).
 </li>
 </ol>
 </li>
-<li>
-Wrap entire app in a context.
-</li>
-</ol>
+</ul>
 <!-- </details> -->
 
 ---
