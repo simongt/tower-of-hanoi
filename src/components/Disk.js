@@ -12,7 +12,7 @@ const diskSource = {
     console.log(props);
     console.log(monitor);
     console.log(component);
-    return props.handleDrop(props.disk.id); 
+    return props.handleDrop(props.disk.id);
   },
 };
 
@@ -27,13 +27,13 @@ const Disk = props => {
   const {
     isDragging,
     connectDragSource, 
-    disk,
+    // disk,
   } = props;
   const opacity = isDragging ? 0 : 1;
   const { id } = props.disk;
   // tower width is 2rem, add 1rem to each side per disk id
   const width = id + 2; // disk widths: 5rem, 7, 9... 21rem
-  const green = 200 - id * ((200 - 36) / 9);
+  const green = 200 - id * ((200 - 36) / 9); // yellow to red
   return connectDragSource(
     <div
       style={{
