@@ -4,14 +4,22 @@ import { DragSource } from "react-dnd";
 const diskSource = {
   beginDrag(props) {
     console.log("Disk --> beginDrag(props)");
-    console.log(props);
+    console.log("props: ");
+    console.table(props);
+    console.log("props.disk: ");
+    console.log(props.disk);
     return props.disk;
   },
   endDrag(props, monitor, component) { 
     console.log("Disk --> endDrag(props)");
-    console.log(props);
+    console.log("props:");
+    console.table(props);
+    console.log("monitor:");
     console.log(monitor);
-    console.log(component);
+    if (monitor.didDrop()) {
+      console.log("Disk --> endDrag(props) --> monitor.didDrop()");
+      return;
+    }
     return props.handleDrop(props.disk.id);
   },
 };
@@ -30,6 +38,7 @@ const Disk = props => {
     // disk,
   } = props;
   const opacity = isDragging ? 0 : 1;
+  const display = isDragging ? "none" : "block";
   const { id } = props.disk;
   // tower width is 2rem, add 1rem to each side per disk id
   const width = id + 2; // disk widths: 5rem, 7, 9... 21rem
@@ -37,6 +46,7 @@ const Disk = props => {
   return connectDragSource(
     <div
       style={{
+        display: `${display}`,
         opacity: `${opacity}`,
         zIndex: "2",
         width: `${width}rem`,
@@ -57,4 +67,4 @@ const Disk = props => {
 // spec: A plain object with a few allowed methods on it, describes how the drag source reacts to the drag-and-drop events
 // collect: The collecting function. It should return a plain object of the props to inject into your component. It receives two parameters: connect and monitor.
 
-export default DragSource("this.props.disk.label", diskSource, collect)(Disk);
+export default DragSource("disk", diskSource, collect)(Disk);
