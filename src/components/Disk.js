@@ -1,48 +1,52 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { DragSource } from "react-dnd";
 
 const diskSource = {
-  beginDrag(props) { 
-    return props.disk 
+  beginDrag(props) {
+    console.log("Disk --> beginDrag(props)");
+    console.log(props);
+    return props.disk;
   },
   endDrag(props, monitor, component) { 
-    return props.handleDrop(props.disk.id) 
+    console.log("Disk --> endDrag(props)");
+    console.log(props);
+    console.log(monitor);
+    console.log(component);
+    return props.handleDrop(props.disk.id); 
   },
-}
+};
 
 const collect = (connect, monitor) => ({
   connectDragSource: connect.dragSource(),
   connectDragPreview: connect.dragPreview(),
   isDragging: monitor.isDragging(),
-})
+});
 
-class Disk extends Component {
-  render() {
-    const {
-      // isDragging, 
-      connectDragSource, 
-      // disk 
-     } = this.props;
-    const { id } = this.props.disk;
-    // widths are in rem: tower is 2, add 1rem to each side per disk id
-    const width = id + 2; // disk widths: 5rem, 7, 9... 21rem
-    const green = 200 - id * ((200 - 36) / 9);
-    return connectDragSource(
-      <div
-        style={{
-          zIndex: "2",
-          width: `${width}rem`,
-          marginLeft: `calc(-${id/2}rem - 1px)`,
-          height: "3vh",
-          borderRadius: "1em",
-          border: "1px solid black",
-          boxShadow: "inset 0 0 2px 0 black",
-          // green range: 200 (yellow-er) to 36 (red-er), increment for 9 disks
-          background: `rgba(244, ${green}, 36, 1)`,
-        }}
-      />
-    );
-  }
+const Disk = props => {
+  const {
+    // isDragging, 
+    connectDragSource, 
+    // disk 
+    } = props;
+  const { id } = props.disk;
+  // widths are in rem: tower is 2, add 1rem to each side per disk id
+  const width = id + 2; // disk widths: 5rem, 7, 9... 21rem
+  const green = 200 - id * ((200 - 36) / 9);
+  return connectDragSource(
+    <div
+      style={{
+        zIndex: "2",
+        width: `${width}rem`,
+        marginLeft: `calc(-${id/2}rem - 1px)`,
+        height: "3vh",
+        borderRadius: "1em",
+        border: "1px solid black",
+        boxShadow: "inset 0 0 2px 0 black",
+        // green range: 200 (yellow-er) to 36 (red-er), increment for 9 disks
+        background: `rgba(244, ${green}, 36, 1)`,
+      }}
+    />
+  );
 }
 
 // Required Parameters
