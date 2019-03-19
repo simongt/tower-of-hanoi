@@ -3,7 +3,7 @@ import Disk from "./Disk";
 
 class Tower extends Component {
   handleDroppedDisk = (id) => {
-    console.log("Tower --> handleDroppedDisk");
+    console.log("Tower --> handleDroppedDisk(" + id + ")");
   }
   render() {
     const towerStyle = {
