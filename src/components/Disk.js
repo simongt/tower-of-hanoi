@@ -23,13 +23,14 @@ const collect = (connect, monitor) => ({
 });
 
 const Disk = props => {
+  console.log("Disk --> render");
   const {
-    // isDragging, 
+    // isDragging,
     connectDragSource, 
-    // disk 
+    // disk,
     } = props;
   const { id } = props.disk;
-  // widths are in rem: tower is 2, add 1rem to each side per disk id
+  // tower width is 2rem, add 1rem to each side per disk id
   const width = id + 2; // disk widths: 5rem, 7, 9... 21rem
   const green = 200 - id * ((200 - 36) / 9);
   return connectDragSource(
@@ -53,8 +54,5 @@ const Disk = props => {
 // type: A string, or an ES6 symbol, or a function (that returns either a string or ES6 symbol given the component's props). Only the drop targets registered for the same type will react to the items produced by this drag source.
 // spec: A plain object with a few allowed methods on it, describes how the drag source reacts to the drag-and-drop events
 // collect: The collecting function. It should return a plain object of the props to inject into your component. It receives two parameters: connect and monitor.
-
-// Optional Parameters
-// options
 
 export default DragSource("this.props.disk.label", diskSource, collect)(Disk);

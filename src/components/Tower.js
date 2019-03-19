@@ -17,7 +17,7 @@ const Tower = props => {
     borderRadius: "0.75rem 0.75rem 0 0",
     display: "grid",
     alignItems: "end",
-    alignContent: "end" 
+    alignContent: "end",
   };
   const { disks } = props;
   return (
