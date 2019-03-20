@@ -2,25 +2,26 @@ import React, { Component } from 'react'
 import { DropTarget } from "react-dnd";
 import Disk from "./Disk";
 
-const collect = (connect, monitor) => ({
-  connectDropTarget: connect.dropTarget(),
-  hovered: monitor.isOver(),
-  diskDropped: monitor.getItem(),
-});
+// collecting method (to track the item being dragged)
+const collect = (connect, monitor) => {
+  console.log("DropTarget(Tower) --> collect");
+  return {
+    connectDropTarget: connect.dropTarget(),
+    hovered: monitor.isOver(),
+    diskDragged: monitor.getItem(),
+  };
+};
 
 class Tower extends Component {
-  handleDroppedDisk = (id) => {
-    console.log("Tower --> handleDroppedDisk(" + id + ")");
-  }
   render() {
     console.log("Tower -->  render");
     console.log("props: ");
     console.table(this.props);
-    const { disks } = this.props;
-    const { 
-      connectDropTarget, 
-      hovered, 
-      // diskDropped 
+    const {
+      disks,
+      dropDisk,
+      connectDropTarget,
+      hovered,
     } = this.props;
     const background = hovered
       ? `linear-gradient(
@@ -51,7 +52,7 @@ class Tower extends Component {
           <Disk
             key={disk.id}
             disk={disk}
-            handleDrop={id => this.handleDroppedDisk(id)}
+            dropDisk={(diskId, towerId) => dropDisk(diskId, towerId)}
           />
         ))}
       </div>

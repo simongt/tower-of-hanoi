@@ -15,12 +15,14 @@ const diskSource = {
     console.log("props:");
     console.table(props);
     console.log("monitor:");
-    console.log(monitor);
-    if (monitor.didDrop()) {
-      console.log("Disk --> endDrag(props) --> monitor.didDrop()");
+    console.table(monitor);
+    console.log(monitor.getDropResult());
+    if (!monitor.didDrop()) {
+      console.log("Disk --> endDrag(props) --> !monitor.didDrop()");
       return;
     }
-    return props.handleDrop(props.disk.id);
+    // TO-DO: find target tower, and pass its id to dropDisk
+    return props.dropDisk(props.disk.id, 3);
   },
 };
 
@@ -35,14 +37,13 @@ const Disk = props => {
   const {
     isDragging,
     connectDragSource, 
-    // disk,
+    disk,
   } = props;
-  const opacity = isDragging ? 0 : 1;
   const display = isDragging ? "none" : "block";
-  const { id } = props.disk;
+  const opacity = isDragging ? 0.5 : 1;
   // tower width is 2rem, add 1rem to each side per disk id
-  const width = id + 2; // disk widths: 5rem, 7, 9... 21rem
-  const green = 200 - id * ((200 - 36) / 9); // yellow to red
+  const width = disk.id + 2; // disk widths: 5rem, 7, 9... 21rem
+  const green = 200 - disk.id * ((200 - 36) / 9); // yellow to red
   return connectDragSource(
     <div
       style={{
@@ -50,7 +51,7 @@ const Disk = props => {
         opacity: `${opacity}`,
         zIndex: "2",
         width: `${width}rem`,
-        marginLeft: `calc(-${id/2}rem - 1px)`,
+        marginLeft: `calc(-${disk.id/2}rem - 1px)`,
         height: "3vh",
         borderRadius: "1em",
         border: "1px solid black",

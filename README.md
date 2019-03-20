@@ -29,9 +29,10 @@ Before attempting to code the solution, my first step is break the problem down 
 Here is my implementation overview (along with an ongoing post-MVP backlog):
 
 1. Implement a responsive, grid system and add minimal styling.
-   * Build a 24-column grid with a floor base and three standing towers.
+   * Build a grid with a floor base and three standing towers. ✓
      <details>
-     <summary>Grid Mockup (Diagram)</summary>
+     <summary>Mockup Diagram</summary>
+     This is a diagram of a 24-column grid, however it's wholy unnecessary (and excessive) to have that many columns. It would suffice to have just 3 columns for the towers along with 4 columns to cover the spaces in between and around.
      <img src="./public/img/towers-of-hanoi-grid-mockup-1.jpg" alt="Grid Mockup">
      </details> 
    * Integrate with [SASS](https://sass-lang.com/) to handle CSS styling. ***Post-MVP***
@@ -40,10 +41,10 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
 
 2. Implement component(s) for disks and their mechanics, e.g. drag-and-drop feature.
    * Upon release, lock to nearest standing tower and drop to the bottom.
-     * Consider using [react-dnd](https://github.com/react-dnd/react-dnd/)'s API to handle drag-and-drop for non-touch devices.
+     * Consider using [react-dnd](https://github.com/react-dnd/react-dnd/)'s API to handle drag-and-drop for non-touch devices.  ✓
      * Since native drag-and-drop is not yet supported on touch devices, consider using Yahoo's [touch back-end](https://github.com/yahoo/react-dnd-touch-backend/) for [react-dnd](https://github.com/react-dnd/react-dnd). ***Post-MVP***
      * Consider using [SyntheticEvent](https://reactjs.org/docs/events.html/) wrappers to handle drag-and-drop without using an external API. ***Post-MVP***
-   * Generate at least three disks stacked on the first tower.
+   * Generate at least three disks stacked on the first tower.  ✓
      * Implement difficulty levels according to the number of disks, where the user can select a starting number of disks (the minimum / default is 3). ***Post-MVP***
 
 3. Implement gameplay logic.

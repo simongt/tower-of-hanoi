@@ -17,16 +17,24 @@ class Game extends Component {
         { id: 6, tower: {}, label: "3x-large" },
         { id: 7, tower: {}, label: "4x-large" },
         { id: 8, tower: {}, label: "5x-large" },
-        { id: 9, tower: {}, label: "6x-large" }
+        { id: 9, tower: {}, label: "6x-large" },
       ],
       towers: [
         { id: 1, stack: [], label: "left" },
         { id: 2, stack: [], label: "middle" },
-        { id: 3, stack: [], label: "right" }
+        { id: 3, stack: [], label: "right" },
       ]
     };
   }
 
+  // drag-and-drop methods
+  handleDroppedDisk = (diskId, towerId) => {
+    console.log(`Game --> handleDroppedDisk(${diskId},${towerId})`);
+    // update disk's tower property
+    // update tower's stack property
+  }
+
+  // modal methods
   handleToggleModal = () => {
     console.log("Game --> handleToggleModal");
     this.setState(prevState => ({
@@ -37,15 +45,16 @@ class Game extends Component {
   handleAfterOpenModal = () => {
     console.log("Game --> handleAfterOpenModal");
   };
-
+  
   handleRequestCloseModal = () => {
     console.log("Game --> handleRequestCloseModal");
   };
 
+  // lifecycle methods
   componentDidMount = () => {
     console.log("Game --> componentDidMount");
     console.log("--{ Game render cycle complete }--");
-    
+
     // initial config: all disks are stacked on left tower
     this.setState(prevState => ({
       disks: [
@@ -85,6 +94,7 @@ class Game extends Component {
         />
         <GameGrid
           toggleModal={this.handleToggleModal}
+          dropDisk={this.handleDroppedDisk}
           disks={disks}
           towers={towers}
         />
