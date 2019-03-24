@@ -140,7 +140,7 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
      <details>
      <summary>Mockup Diagram</summary>
      This is a diagram of a 24-column grid, however it's wholy unnecessary (and excessive) to have that many columns. It would suffice to have just 3 columns for the towers along with 4 columns to cover the spaces in between and around.
-     <img src="./public/img/towers-of-hanoi-grid-mockup-1.jpg" alt="Grid Mockup">
+     <img src="./public/img/towers-of-hanoi-grid-mockup.jpg" alt="Grid Mockup">
      </details> 
    * Integrate with [SASS](https://sass-lang.com/) to handle CSS styling. ***Post-MVP***
    * Integrate with [Styled Components](https://www.styled-components.com/) to handle React component styling. ***Post-MVP***
