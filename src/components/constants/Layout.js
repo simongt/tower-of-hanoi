@@ -1,9 +1,9 @@
-const TOWER_WIDTH = `2rem`;
+const TOWER_WIDTH = `2.25rem`;
 const HEADER_HEIGHT = `100vmin/6`;
 const FOOTER_HEIGHT = `2rem`;
 const SETTING_HEIGHT = `(100vh - ${HEADER_HEIGHT} - ${FOOTER_HEIGHT})`;
-const TOWER_HEIGHT = `(${SETTING_HEIGHT} / 1.5) - ${FOOTER_HEIGHT}`;
-const DISK_HEIGHT = `(${TOWER_HEIGHT}) / 12`;
+const TOWER_HEIGHT = `(${SETTING_HEIGHT} / 2) - ${FOOTER_HEIGHT}`;
+const DISK_HEIGHT = `(${TOWER_HEIGHT}) / 11`;
 
 export default {
   TOWER_WIDTH,

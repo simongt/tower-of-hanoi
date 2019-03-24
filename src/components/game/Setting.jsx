@@ -22,10 +22,19 @@ class Setting extends Component {
   }
 }
 
+// three towers
 const settingStyle = {
   height: `calc(${Layout.SETTING_HEIGHT})`,
   display: "grid",
-  gridTemplateColumns: `repeat(3, auto ${Layout.TOWER_WIDTH}) auto`,
+  gridTemplateColumns: `
+    1fr 
+    ${Layout.TOWER_WIDTH}
+    1.5fr
+    ${Layout.TOWER_WIDTH}
+    1.5fr
+    ${Layout.TOWER_WIDTH}
+    1fr
+  `,
   justifyContent: "stretch",
   alignItems: "end",
 };
