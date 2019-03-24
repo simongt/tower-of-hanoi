@@ -1,38 +1,40 @@
 import React, { Component } from "react";
 
-import Setting from "./setting/Setting";
+import Setting from "./game/Setting";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
+import Layout from "./constants/Layout";
 
 class App extends Component {
   
   constructor(props) {
     super(props);
   
-    this.state = {};
+    this.state = {
+      numDisks: 3,
+    };
   }
   
   render() {
-    const height = {
-      header: "calc(100vmin/8)",
-      setting: "calc(100vh - 100vmin/8 - 2rem)",
-      footer: "2rem",
-    };
     return (
-      <div
-        style={{
-          display: "grid",
-          gridTemplateRows: // responsive solution to fit window view
-            `${height.header} ${height.setting} ${height.footer}`,
-          overflow: "hidden"
-        }}
-      >
+      <div style={layoutStyle}>
         <Header />
-        <Setting /> {/* game board */}
+        <Setting numDisks={this.state.numDisks} /> {/* game board */}
         <Footer />
       </div>
     );
   }
 }
+
+// responsive grid layout fits entire app into window view
+const layoutStyle = {
+  display: "grid",
+  gridTemplateRows: `
+    calc(${Layout.HEADER_HEIGHT})
+    calc(${Layout.SETTING_HEIGHT})
+    ${Layout.FOOTER_HEIGHT}
+  `,
+  overflow: "hidden"
+};
 
 export default App;
