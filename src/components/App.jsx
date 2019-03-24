@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import Setting from "./game/Setting";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
@@ -11,15 +10,47 @@ class App extends Component {
     super(props);
   
     this.state = {
-      numDisks: 3,
+      numDisks: 9,
+      towers: [{
+        id: 1,
+        disks: [],
+      }, {
+        id: 2,
+        disks: [],
+      }, {
+        id: 3,
+        disks: [],
+      }],
     };
   }
+
+  componentDidMount = () => {
+    this.setState(prevState => {
+      const disks = [];
+      for(let id = 1; id <= prevState.numDisks; id++) {
+        disks.push({id: id});
+      }
+      return {
+        towers: [{
+          id: 1,
+          disks: disks,
+        }, {
+          id: 2,
+          disks: [],
+        }, {
+          id: 3,
+          disks: [],
+        }]
+      }
+    });
+  }
+  
   
   render() {
     return (
       <div style={layoutStyle}>
         <Header />
-        <Setting numDisks={this.state.numDisks} /> {/* game board */}
+        <Setting towers={this.state.towers} /> {/* game board */}
         <Footer />
       </div>
     );
