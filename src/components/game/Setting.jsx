@@ -7,7 +7,7 @@ class Setting extends Component {
     const {
       towers
     } = this.props;
-    let i = 0;
+    let i = 0; // tower index
     return (
       <div style={settingStyle}>
         <div style={{ borderBottom: "1px solid black" }} />
@@ -22,16 +22,16 @@ class Setting extends Component {
   }
 }
 
-// three towers
+// render style for three towers
 const settingStyle = {
   height: `calc(${Layout.SETTING_HEIGHT})`,
   display: "grid",
   gridTemplateColumns: `
     1fr 
     ${Layout.TOWER_WIDTH}
-    1.5fr
+    1.75fr
     ${Layout.TOWER_WIDTH}
-    1.5fr
+    1.75fr
     ${Layout.TOWER_WIDTH}
     1fr
   `,
