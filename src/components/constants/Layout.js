@@ -1,0 +1,9 @@
+const HEADER_HEIGHT = `100vmin/6`;
+const FOOTER_HEIGHT = `2rem`;
+const SETTING_HEIGHT = `100vh - ${HEADER_HEIGHT} - ${FOOTER_HEIGHT}`;
+
+export default {
+  HEADER_HEIGHT,
+  FOOTER_HEIGHT,
+  SETTING_HEIGHT,
+};
