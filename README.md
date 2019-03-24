@@ -72,7 +72,7 @@ Dan Abramov – the creator of Redux, Create React App, React DnD – published 
   </tr>
   <tr>
     <td>
-      <strong><code>DiskWrapper</code></strong>
+      <strong><code>DiskContainer</code></strong>
     </td>
     <td>
       <em>Smart</em> wrapper that handles disk logic (e.g. drag-and-drop source).
@@ -94,7 +94,7 @@ Dan Abramov – the creator of Redux, Create React App, React DnD – published 
   </tr>
   <tr>
     <td>
-      <strong><code>TowerWrapper</code></strong>
+      <strong><code>TowerContainer</code></strong>
     </td>
     <td>
       <em>Smart</em> wrapper that handles tower logic (e.g. drag-and-drop target).
