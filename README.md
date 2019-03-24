@@ -3,7 +3,12 @@
 <table>
   <tr>
     <td>
-      In this project, I use <a href="https://reactjs.org/">React</a>, <a href="https://redux.js.org/">Redux</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">CSS Grid Layout</a> to build a clone of the classic math puzzle, <a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi/">Towers of Hanoi</a>.
+      In this project, I use <a href="https://reactjs.org/">React</a>, <a href="https://redux.js.org/">Redux</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">CSS Grid Layout</a> and the <a href="http://react-dnd.github.io/react-dnd/docs">React DnD</a> API to build a clone of the classic math puzzle, <a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi/">Towers of Hanoi</a>.<br>
+      <p align="center">
+        <a href="https://simongt.github.io/towers-of-hanoi/">
+          <img src="./public/img/towers-of-hanoi-screenshot.jpg" alt="Towers of Hanoi" />
+        </a>
+      </p>
     </td>
   </tr>
 </table>
