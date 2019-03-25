@@ -13,7 +13,7 @@ const diskSource = {
 // collecting function
 const collect = (connect, monitor) => ({
   connectDragSource: connect.dragSource(),
-  // connectDragPreview: connect.dragPreview(),
+  connectDragPreview: connect.dragPreview(),
   isDragging: monitor.isDragging(),
 });
 
@@ -22,8 +22,8 @@ class Disk extends Component {
     const { rank, connectDragSource, isDragging } = this.props;
     const display = isDragging ? "none" : "block";
     const opacity = isDragging ? 0.5 : 1;
-    const width = `2 * (${Layout.TOWER_WIDTH} + ${rank}vw)`;
-    const offset = `${Layout.TOWER_WIDTH} / 2 - ${rank}vw`;
+    const width = `(${Layout.TOWER_WIDTH} + ${rank * Layout.DISK_WIDTH_FACTOR}vw)`;
+    const offset = `${rank * Layout.DISK_WIDTH_FACTOR / 2}vw`;
     // hue of green: divide spectrum from yellow (200) to red (36)
     const green = 200 - rank * ((200 - 36) / Layout.NUM_DISKS);
     const diskStyle = {
@@ -33,7 +33,7 @@ class Disk extends Component {
         ${Layout.DISK_HEIGHT} * ${Layout.MAX_TOTAL_DISKS} / ${Layout.NUM_DISKS}
       )`,
       width: `calc(${width})`,
-      transform: `translateX(calc(-${offset}))`,
+      transform: `translateX(calc(-1 * (${offset})))`,
       borderRadius: `calc((${Layout.DISK_HEIGHT}) / 1.5)`,
       border: "1px solid black",
       boxShadow: "inset 0 0 2px 0 black",
