@@ -5,7 +5,7 @@ import Disk from "./Disk";
 class Tower extends Component {
   render() {
     const {
-      disks
+      disks,
     } = this.props;
     return (
       <div style={towerStyle}>
@@ -23,7 +23,9 @@ const background = `
     rgba(0, 0, 0, 0.4)
   )
 `;
+
 const borderRadius = `calc((${Layout.TOWER_WIDTH}) / 4)`;
+
 const towerStyle = {
   height: `calc(${Layout.TOWER_HEIGHT})`,
   borderStyle: "solid",
