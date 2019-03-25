@@ -33,6 +33,8 @@ const getWidthFactor = () => {
       return 3.5;
     case 9:
       return 3;
+    default:
+      return 3;
   }
 }
 
