@@ -33,11 +33,11 @@ const settingStyle = {
   display: "grid",
   gridTemplateColumns: `
     1fr 
-    ${Layout.TOWER_WIDTH}
+    calc(${Layout.TOWER_WIDTH})
     1.75fr
-    ${Layout.TOWER_WIDTH}
+    calc(${Layout.TOWER_WIDTH})
     1.75fr
-    ${Layout.TOWER_WIDTH}
+    calc(${Layout.TOWER_WIDTH})
     1fr
   `,
   justifyContent: "stretch",

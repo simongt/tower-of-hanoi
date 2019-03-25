@@ -12,7 +12,7 @@ const towerTarget = {
     return isValidDiskMove();
   },
   drop(props, monitor) {
-    console.log("DropTarget(Tower) --> towerTarget --> drop");
+    console.log("DISK is dropped.");
     moveDisk();
   },
   hover(props, monitor) {
@@ -24,7 +24,7 @@ const collect = (connect, monitor) => ({
   connectDropTarget: connect.dropTarget(),
   highlighted: !!monitor.canDrop(),
   hovered: !!monitor.isOver(),
-  // diskDragged: monitor.getItem(),
+  diskDragged: monitor.getItem(),
 });
 
 class Tower extends Component {

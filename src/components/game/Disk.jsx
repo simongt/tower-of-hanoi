@@ -22,6 +22,8 @@ class Disk extends Component {
     const { rank, connectDragSource, isDragging } = this.props;
     const display = isDragging ? "none" : "block";
     const opacity = isDragging ? 0.5 : 1;
+    const width = `2 * (${Layout.TOWER_WIDTH} + ${rank}vw)`;
+    const offset = `${Layout.TOWER_WIDTH} / 2 - ${rank}vw`;
     // hue of green: divide spectrum from yellow (200) to red (36)
     const green = 200 - rank * ((200 - 36) / Layout.NUM_DISKS);
     const diskStyle = {
@@ -30,9 +32,8 @@ class Disk extends Component {
       height: `calc(
         ${Layout.DISK_HEIGHT} * ${Layout.MAX_TOTAL_DISKS} / ${Layout.NUM_DISKS}
       )`,
-      width: `calc((${Layout.TOWER_WIDTH} + ${rank}vw ) * 2)`,
-      transform: `translateX(calc(
-        (-${Layout.TOWER_WIDTH}) / 2 - ${rank}vw))`,
+      width: `calc(${width})`,
+      transform: `translateX(calc(-${offset}))`,
       borderRadius: `calc((${Layout.DISK_HEIGHT}) / 1.5)`,
       border: "1px solid black",
       boxShadow: "inset 0 0 2px 0 black",
