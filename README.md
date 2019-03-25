@@ -185,8 +185,29 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
 
 ## Infrastructure
 
-The project's <strong><code>src</code></strong> infrastructure and a brief note on each file's relevancy:
+The project's <strong>file tree</strong> file tree and a brief note on each file's relevancy:
 
 ```
 src
+├── components
+│   ├── App.jsx
+│   ├── constants
+│   │   ├── ItemTypes.js
+│   │   └── Layout.js
+│   ├── game
+│   │   ├── Disk.jsx
+│   │   ├── Setting.jsx
+│   │   └── Tower.jsx
+│   ├── layout
+│   │   ├── Footer.jsx
+│   │   └── Header.jsx
+│   └── util
+│       └── GamePlay.js
+├── index.js
+├── lib
+│   └── withDragDropContext.js
+└── style
+    └── global.css
 ```
+
+---
