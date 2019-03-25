@@ -10,41 +10,27 @@ class App extends Component {
     super(props);
   
     this.state = {
-      numDisks: 9,
-      towers: [{
-        id: 1,
-        disks: [],
-      }, {
-        id: 2,
-        disks: [],
-      }, {
-        id: 3,
-        disks: [],
-      }],
+      towers: [
+        { id: 1, disks: [] },
+        { id: 2, disks: [] },
+        { id: 3, disks: [] }
+      ],
     };
   }
 
   componentDidMount = () => {
-    this.setState(prevState => {
-      const disks = [];
-      for(let id = 1; id <= prevState.numDisks; id++) {
-        disks.push({id: id});
-      }
-      return {
-        towers: [{
-          id: 1,
-          disks: disks,
-        }, {
-          id: 2,
-          disks: [],
-        }, {
-          id: 3,
-          disks: [],
-        }]
-      }
+    const disks = [];
+    for(let id = 1; id <= Layout.NUM_DISKS; id++) {
+      disks.push({id: id});
+    }
+    this.setState({
+      towers: [
+        { id: 1, disks: disks },
+        { id: 2, disks: [] },
+        { id: 3, disks: [] }
+      ],
     });
   }
-  
   
   render() {
     return (
