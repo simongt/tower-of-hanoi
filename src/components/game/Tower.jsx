@@ -8,15 +8,15 @@ import ItemTypes from "../constants/ItemTypes";
 // drop target spec that only handles the drop event
 const towerTarget = {
   canDrop(props, monitor) {
-    console.log("Detecting if DISK can be dropped to currently hovered TOWER.");
+    console.log("Detect if DISK can be validly dropped to TOWER.");
     return isValidDiskMove();
   },
   drop(props, monitor) {
-    console.log("DISK is dropped.");
+    console.log("Drop DISK.");
     moveDisk();
   },
   hover(props, monitor) {
-    console.log("DropTarget(Tower) --> towerTarget --> hover");
+    console.log("DISK is hovering TOWER.");
   },
 };
 
