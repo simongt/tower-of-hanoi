@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Tower from "./Tower";
 import Layout from "../constants/Layout";
+import withDragDropContext from "../../lib/withDragDropContext";
 
 const FloorSpace = () => (
   <div style={{ borderBottom: "1px solid black" }} />
@@ -32,11 +33,11 @@ const settingStyle = {
   display: "grid",
   gridTemplateColumns: `
     1fr 
-    ${Layout.TOWER_WIDTH}
+    calc(${Layout.TOWER_WIDTH})
     1.75fr
-    ${Layout.TOWER_WIDTH}
+    calc(${Layout.TOWER_WIDTH})
     1.75fr
-    ${Layout.TOWER_WIDTH}
+    calc(${Layout.TOWER_WIDTH})
     1fr
   `,
   justifyContent: "stretch",
@@ -44,4 +45,4 @@ const settingStyle = {
   overflow: "hidden",
 };
 
-export default Setting;
+export default withDragDropContext(Setting);
