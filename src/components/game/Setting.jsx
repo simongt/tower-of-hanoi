@@ -2,21 +2,25 @@ import React, { Component } from "react";
 import Tower from "./Tower";
 import Layout from "../constants/Layout";
 
+const FloorSpace = () => (
+  <div style={{ borderBottom: "1px solid black" }} />
+);
+
 class Setting extends Component {
   render() {
     const {
-      towers
+      towers,
     } = this.props;
     let i = 0; // tower index
     return (
       <div style={settingStyle}>
-        <div style={{ borderBottom: "1px solid black" }} />
+        <FloorSpace />
         <Tower key={towers[i].id} disks={towers[i++].disks} />
-        <div style={{ borderBottom: "1px solid black" }} />
+        <FloorSpace />
         <Tower key={towers[i].id} disks={towers[i++].disks} />
-        <div style={{ borderBottom: "1px solid black" }} />
+        <FloorSpace />
         <Tower key={towers[i].id} disks={towers[i++].disks} />
-        <div style={{ borderBottom: "1px solid black" }} />
+        <FloorSpace />
       </div>
     );
   }
@@ -37,6 +41,7 @@ const settingStyle = {
   `,
   justifyContent: "stretch",
   alignItems: "end",
+  overflow: "hidden",
 };
 
 export default Setting;
