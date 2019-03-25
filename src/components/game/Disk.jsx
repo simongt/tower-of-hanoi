@@ -6,7 +6,6 @@ import ItemTypes from "../constants/ItemTypes";
 // draggable object
 const diskSource = {
   beginDrag(props) {
-    console.log(props);
     return {};
   },
 }
@@ -14,7 +13,7 @@ const diskSource = {
 // collecting function
 const collect = (connect, monitor) => ({
   connectDragSource: connect.dragSource(),
-  connectDragPreview: connect.dragPreview(),
+  // connectDragPreview: connect.dragPreview(),
   isDragging: monitor.isDragging(),
 });
 
