@@ -5,8 +5,8 @@ import ItemTypes from "../constants/ItemTypes";
 
 // draggable object
 const diskSource = {
-  beginDrag(props) {
-    return {};
+  beginDrag({ rank }) {
+    return { rank };
   },
 }
 
@@ -39,7 +39,7 @@ class Disk extends Component {
       boxShadow: "inset 0 0 2px 0 black",
       background: `rgb(244, ${green}, 36)`
     };
-    return connectDragSource(<div style={diskStyle} />);
+    return connectDragSource(<div style={diskStyle} rank={rank}></div>);
   }
 }
 

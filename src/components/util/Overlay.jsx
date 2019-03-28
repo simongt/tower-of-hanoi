@@ -16,9 +16,10 @@ const Overlay = ({rank}) => {
       )`,
     width: `calc(${width})`,
     boxShadow: "inset 0 0 2px 0 black",
+    opacity: "0.75",
   }
   return (
-    <div style={overlayStyle} />
+    <div style={overlayStyle}></div>
   );
 };
 
