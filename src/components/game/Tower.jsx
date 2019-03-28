@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Layout from "../constants/Layout";
 import Disk from "./Disk";
+import Overlay from "../util/Overlay";
 import { isValidDiskMove, moveDisk } from "../util/GamePlay";
 import { DropTarget } from "react-dnd";
 import ItemTypes from "../constants/ItemTypes";
@@ -22,15 +23,15 @@ const towerTarget = {
 
 const collect = (connect, monitor) => ({
   connectDropTarget: connect.dropTarget(),
-  highlighted: !!monitor.canDrop(),
-  hovered: !!monitor.isOver(),
+  canDrop: !!monitor.canDrop(),
+  isOver: !!monitor.isOver(),
   diskDragged: monitor.getItem(),
 });
 
 class Tower extends Component {
   render() {
-    const { disks, connectDropTarget, hovered } = this.props;
-    const background = hovered
+    const { disks, connectDropTarget, isOver, canDrop, diskDragged } = this.props;
+    const background = isOver
       ? `linear-gradient(
           to bottom,
           rgba(255, 204, 0, 1),
@@ -46,6 +47,8 @@ class Tower extends Component {
         )`;
     const borderRadius = `calc((${Layout.TOWER_WIDTH}) / 4)`;
     const towerStyle = {
+      position: "relative",
+      width: "100%",
       height: `calc(${Layout.TOWER_HEIGHT})`,
       borderStyle: "solid",
       borderWidth: "1px 1px 0px 1px",
@@ -58,6 +61,7 @@ class Tower extends Component {
 
     return connectDropTarget(
       <div style={towerStyle}>
+        {isOver && canDrop && <Overlay key={diskDragged.id} rank={diskDragged.id} />}
         {disks.map(disk => <Disk key={disk.id} rank={disk.id} />)}
       </div>
     );
