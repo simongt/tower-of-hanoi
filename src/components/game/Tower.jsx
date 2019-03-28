@@ -12,8 +12,9 @@ const towerTarget = {
     console.log("Detect if DISK can be validly dropped to TOWER.");
     return isValidDiskMove();
   },
-  drop(props, monitor) {
-    console.log("Drop DISK.");
+  drop({disks}, monitor) {
+    console.log("Drop DISK, props:");
+    console.table(disks); // array of disks
     moveDisk();
   },
   hover(props, monitor) {
@@ -61,7 +62,8 @@ class Tower extends Component {
 
     return connectDropTarget(
       <div style={towerStyle}>
-        {isOver && canDrop && <Overlay key={diskDragged.id} rank={diskDragged.id} />}
+        {/* {isOver && canDrop && <Overlay key={diskDragged.id} rank={diskDragged.id} />} */}
+        {isOver && canDrop && disks.push({ id: diskDragged.id })}
         {disks.map(disk => <Disk key={disk.id} rank={disk.id} />)}
       </div>
     );
