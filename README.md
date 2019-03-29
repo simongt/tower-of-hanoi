@@ -136,7 +136,7 @@ Most likely, in the `App` component. It's best practice to have as little state 
 
 Here is my implementation overview (along with an ongoing post-MVP backlog):
 
-1. Implement a responsive, grid system and add minimal styling.
+1. Implement a responsive, grid system and add minimal styling. ✓
    * Build a grid with a floor base and three standing towers. ✓
      <details>
      <summary>Mockup Diagram</summary>
@@ -147,8 +147,8 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
    * Integrate with [Styled Components](https://www.styled-components.com/) to handle React component styling. ***Post-MVP***
    * Improve header styling and landing view (fade header in, then footer and towers in, finally drop disks into first tower). ***Post-MVP***
 
-2. Implement component(s) for disks and their mechanics, e.g. drag-and-drop feature.
-   * Upon release, lock to nearest standing tower and drop to the bottom.
+2. Implement component(s) for disks and their mechanics, e.g. drag-and-drop feature. ✓
+   * Upon release, lock to nearest standing tower and drop to the bottom (or top of disk stack).
      * Consider using [react-dnd](https://github.com/react-dnd/react-dnd/)'s API to handle drag-and-drop for non-touch devices.  ✓
      * Since native drag-and-drop is not yet supported on touch devices, consider using Yahoo's [touch back-end](https://github.com/yahoo/react-dnd-touch-backend/) for [react-dnd](https://github.com/react-dnd/react-dnd). ***Post-MVP***
      * Consider using [SyntheticEvent](https://reactjs.org/docs/events.html/) wrappers to handle drag-and-drop without using an external API. ***Post-MVP***
