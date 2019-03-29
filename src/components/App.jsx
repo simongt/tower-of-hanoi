@@ -35,32 +35,32 @@ class App extends Component {
   getTowerId = (diskId) => {}
 
   removeDisk = (diskId) => {
-    console.log(diskId);
-    const { towers } = this.state;
-    let towerId;
-    towers.forEach(tower => {
-      tower.disks.forEach(disk => {
-        if (disk.id === diskId) {
-          towerId = tower.id;
-          console.log(`Remove DISK ${diskId} from TOWER ${towerId}.`);
-        }
-      })
-    });
-    // this.setState(prevState => {
-    //   prevState.towers = prevState.towers.map(tower => {
-    //     console.log(`Searching TOWER ${tower.id}...`);
-    //     return tower.disks.filter(disk => {
-    //       console.log(`Checking DISK ${disk.id}`);
-    //       if (disk.id === diskId) {
-    //         console.log(`DISK found!`);
-    //       }
-    //       return disk.id !== diskId;
-    //     });
+    // console.log(diskId);
+    // const { towers } = this.state;
+    // let towerId;
+    // towers.forEach(tower => {
+    //   tower.disks.forEach(disk => {
+    //     if (disk.id === diskId) {
+    //       towerId = tower.id;
+    //       console.log(`Remove DISK ${diskId} from TOWER ${towerId}.`);
+    //     }
     //   })
-    //   return {
-    //     towers: prevState.towers,
-    //   }
-    // })
+    // });
+    this.setState(prevState => {
+      prevState.towers = prevState.towers.map(tower => {
+        console.log(`Searching TOWER ${tower.id}...`);
+        return tower.disks.filter(disk => {
+          console.log(`Checking DISK ${disk.id}`);
+          if (disk.id === diskId) {
+            console.log(`DISK found!`);
+          }
+          return disk.id !== diskId;
+        });
+      })
+      return {
+        towers: prevState.towers,
+      }
+    })
   };
   
   render() {

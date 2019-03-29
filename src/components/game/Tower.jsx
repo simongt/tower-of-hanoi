@@ -69,7 +69,7 @@ class Tower extends Component {
       <div style={towerStyle}>
         {/* while dragging disk over tower, render overlay */}
         {isOver && canDrop && <Overlay rank={diskDragged.rank} />}
-        {disks.map(disk => <Disk key={disk.id} rank={disk.id} />)}
+        {disks && disks.map(disk => <Disk key={disk.id} rank={disk.id} />)}
         {/* {diskDragged && console.log(monitor)} */}
       </div>
     );
