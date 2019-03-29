@@ -9,18 +9,28 @@ const FloorSpace = () => (
 
 class Setting extends Component {
   render() {
-    const {
-      towers,
-    } = this.props;
+    const { towers, removeDisk } = this.props;
     let i = 0; // tower index
     return (
       <div style={settingStyle}>
         <FloorSpace />
-        <Tower key={towers[i].id} disks={towers[i++].disks} />
+        <Tower
+          key={towers[i].id}
+          disks={towers[i++].disks}
+          removeDisk={(diskId) => removeDisk(diskId)}
+        />
         <FloorSpace />
-        <Tower key={towers[i].id} disks={towers[i++].disks} />
+        <Tower
+          key={towers[i].id}
+          disks={towers[i++].disks}
+          removeDisk={(diskId) => removeDisk(diskId)}
+        />
         <FloorSpace />
-        <Tower key={towers[i].id} disks={towers[i++].disks} />
+        <Tower
+          key={towers[i].id}
+          disks={towers[i++].disks}
+          removeDisk={(diskId) => removeDisk(diskId)}
+        />
         <FloorSpace />
       </div>
     );
