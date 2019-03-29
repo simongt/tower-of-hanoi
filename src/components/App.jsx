@@ -15,6 +15,11 @@ class App extends Component {
         { id: 2, disks: [] },
         { id: 3, disks: [] }
       ],
+      // towers: [
+      //   [],
+      //   [],
+      //   []
+      // ],
     };
   }
 
@@ -32,12 +37,16 @@ class App extends Component {
     });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.table(this.state);
+  }
+  
   getTowerId = (diskId) => {}
 
   removeDisk = (diskId) => {
     // console.log(diskId);
     // const { towers } = this.state;
-    // let towerId;
+    // let towerId = null;
     // towers.forEach(tower => {
     //   tower.disks.forEach(disk => {
     //     if (disk.id === diskId) {
@@ -47,18 +56,31 @@ class App extends Component {
     //   })
     // });
     this.setState(prevState => {
-      prevState.towers = prevState.towers.map(tower => {
-        console.log(`Searching TOWER ${tower.id}...`);
-        return tower.disks.filter(disk => {
-          console.log(`Checking DISK ${disk.id}`);
-          if (disk.id === diskId) {
-            console.log(`DISK found!`);
-          }
-          return disk.id !== diskId;
-        });
-      })
+      // prevState.towers = prevState.towers.map(tower => {
+      //   console.log(`Searching TOWER ${tower.id}...`);
+      //   return tower.disks.filter(disk => {
+      //     console.log(`Checking if DISK ${disk.id} was moved.`);
+      //     if (disk.id === diskId) {
+      //       console.log(`→ DISK ${disk.id} was moved!`);
+      //     }
+      //     return disk.id !== diskId;
+      //   });
+      // })
       return {
-        towers: prevState.towers,
+        // towers: prevState.towers,
+        towers: prevState.towers.map(tower => {
+          console.log(`Searching TOWER ${tower.id}...`);
+          return (
+            // returns array of disks WITHOUT moved disk
+            tower.disks.filter(disk => {
+              console.log(`Checking if DISK ${disk.id} was moved.`);
+              if (disk.id === diskId) {
+                console.log(`→ DISK ${disk.id} was moved!`);
+              }
+              return disk.id !== diskId;
+            })
+          );
+        })
       }
     })
   };
