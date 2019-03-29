@@ -28,15 +28,46 @@ class App extends Component {
         { id: 1, disks: disks },
         { id: 2, disks: [] },
         { id: 3, disks: [] }
-      ],
+      ]
     });
   }
+
+  getTowerId = (diskId) => {}
+
+  removeDisk = (diskId) => {
+    console.log(diskId);
+    const { towers } = this.state;
+    let towerId;
+    towers.forEach(tower => {
+      tower.disks.forEach(disk => {
+        if (disk.id === diskId) {
+          towerId = tower.id;
+          console.log(`Remove DISK ${diskId} from TOWER ${towerId}.`);
+        }
+      })
+    });
+    // this.setState(prevState => {
+    //   prevState.towers = prevState.towers.map(tower => {
+    //     console.log(`Searching TOWER ${tower.id}...`);
+    //     return tower.disks.filter(disk => {
+    //       console.log(`Checking DISK ${disk.id}`);
+    //       if (disk.id === diskId) {
+    //         console.log(`DISK found!`);
+    //       }
+    //       return disk.id !== diskId;
+    //     });
+    //   })
+    //   return {
+    //     towers: prevState.towers,
+    //   }
+    // })
+  };
   
   render() {
     return (
       <div style={layoutStyle}>
         <Header />
-        <Setting towers={this.state.towers} /> {/* game board */}
+        <Setting towers={this.state.towers} removeDisk={this.removeDisk} />
         <Footer />
       </div>
     );

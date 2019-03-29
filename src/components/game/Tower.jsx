@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Layout from "../constants/Layout";
 import Disk from "./Disk";
 import Overlay from "../util/Overlay";
-import { isValidDiskMove, moveDisk } from "../util/GamePlay";
+// import { isValidDiskMove, moveDisk } from "../util/GamePlay";
 import { DropTarget } from "react-dnd";
 import ItemTypes from "../constants/ItemTypes";
 
@@ -10,12 +10,14 @@ import ItemTypes from "../constants/ItemTypes";
 const towerTarget = {
   canDrop({ disks }, monitor) {
     // console.log("Detect if DISK can be validly dropped to TOWER.");
-    const rank = monitor.getItem().rank;
-    return isValidDiskMove(rank, disks);
+    // const rank = monitor.getItem().rank;
+    // return isValidDiskMove(rank, disks);
+    return true; // assumes true for now
   },
-  drop({ disks }, monitor) {
+  drop({ disks, removeDisk }, monitor) {
     console.log("Drop DISK");
     const rank = monitor.getItem().rank;
+    removeDisk(rank);
     disks.push({ id: rank });
     // moveDisk(rank, disks);
   },
@@ -29,6 +31,7 @@ const collect = (connect, monitor) => ({
   canDrop: monitor.canDrop(),
   isOver: monitor.isOver(),
   diskDragged: monitor.getItem(),
+  monitor: monitor,
 });
 
 class Tower extends Component {
@@ -67,6 +70,7 @@ class Tower extends Component {
         {/* while dragging disk over tower, render overlay */}
         {isOver && canDrop && <Overlay rank={diskDragged.rank} />}
         {disks.map(disk => <Disk key={disk.id} rank={disk.id} />)}
+        {/* {diskDragged && console.log(monitor)} */}
       </div>
     );
   }
