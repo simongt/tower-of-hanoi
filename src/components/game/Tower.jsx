@@ -8,23 +8,20 @@ import ItemTypes from "../constants/ItemTypes";
 
 // drop target spec that only handles the drop event
 const towerTarget = {
-  canDrop(props, monitor) {
-    console.log("Detect if DISK can be validly dropped to TOWER.");
-    console.log(props); // contains disks from source tower
-    console.log(monitor); // monitors target
-    console.log(monitor.getItem()); // what is this empty object?
-    
-    return isValidDiskMove();
+  canDrop({ disks }, monitor) {
+    // console.log("Detect if DISK can be validly dropped to TOWER.");
+    const rank = monitor.getItem().rank;
+    return isValidDiskMove(rank, disks);
   },
-  drop(props, monitor) {
+  drop({ disks }, monitor) {
     console.log("Drop DISK");
-    console.log(props);
-    console.log(monitor);
-    moveDisk();
+    const rank = monitor.getItem().rank;
+    disks.push({ id: rank });
+    // moveDisk(rank, disks);
   },
-  hover(props, monitor) {
-    console.log("DISK is hovering TOWER.");
-  },
+  // hover(props, monitor) {
+  //   console.log("DISK is hovering TOWER.");
+  // }
 };
 
 const collect = (connect, monitor) => ({
@@ -67,7 +64,8 @@ class Tower extends Component {
     
     return connectDropTarget(
       <div style={towerStyle}>
-        {isOver && canDrop && diskDragged && <Overlay rank={diskDragged.rank} />}
+        {/* while dragging disk over tower, render overlay */}
+        {isOver && canDrop && <Overlay rank={diskDragged.rank} />}
         {disks.map(disk => <Disk key={disk.id} rank={disk.id} />)}
       </div>
     );

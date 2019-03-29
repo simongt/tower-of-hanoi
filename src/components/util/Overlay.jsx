@@ -19,7 +19,7 @@ const Overlay = ({rank}) => {
     opacity: "0.75",
   }
   return (
-    <div style={overlayStyle}></div>
+    <div style={overlayStyle} />
   );
 };
 
