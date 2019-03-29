@@ -2,28 +2,26 @@ import React, { Component } from "react";
 import Layout from "../constants/Layout";
 import Disk from "./Disk";
 import Overlay from "../util/Overlay";
-// import { isValidDiskMove, moveDisk } from "../util/GamePlay";
 import { DropTarget } from "react-dnd";
 import ItemTypes from "../constants/ItemTypes";
 
-// drop target spec that only handles the drop event
+const isValidDiskMove = (rank, disks) => {
+  return true; // assume true until it's time to implement gameplay logic
+};
+
+// drop target specification that only handles the drop event
 const towerTarget = {
   canDrop({ disks }, monitor) {
-    // console.log("Detect if DISK can be validly dropped to TOWER.");
-    // const rank = monitor.getItem().rank;
-    // return isValidDiskMove(rank, disks);
-    return true; // assumes true for now
-  },
-  drop({ disks, removeDisk }, monitor) {
-    console.log("Drop DISK");
     const rank = monitor.getItem().rank;
-    removeDisk(rank);
-    disks.push({ id: rank });
-    // moveDisk(rank, disks);
+    return isValidDiskMove(rank, disks);
   },
-  // hover(props, monitor) {
-  //   console.log("DISK is hovering TOWER.");
-  // }
+  drop({ removeDisk, insertDisk }, monitor) {
+    const rank = monitor.getItem().rank;
+    const target = parseInt(monitor.targetId.substr(1)) + 1;
+    removeDisk(rank);
+    insertDisk(rank, target);
+  },
+  hover() {}
 };
 
 const collect = (connect, monitor) => ({
@@ -31,7 +29,6 @@ const collect = (connect, monitor) => ({
   canDrop: monitor.canDrop(),
   isOver: monitor.isOver(),
   diskDragged: monitor.getItem(),
-  monitor: monitor,
 });
 
 class Tower extends Component {
@@ -67,10 +64,10 @@ class Tower extends Component {
     
     return connectDropTarget(
       <div style={towerStyle}>
-        {/* while dragging disk over tower, render overlay */}
+        {/* render overlay while dragging disk over tower */}
         {isOver && canDrop && <Overlay rank={diskDragged.rank} />}
+        {/* render disks if tower has any */}
         {disks && disks.map(disk => <Disk key={disk.id} rank={disk.id} />)}
-        {/* {diskDragged && console.log(monitor)} */}
       </div>
     );
   }
