@@ -56,7 +56,7 @@ class App extends Component {
       // add disk to target tower
       towers: prevState.towers.map(tower => {
         if (tower.id === towerId) {
-          tower.disks.push({ id: diskId });
+          tower.disks.unshift({ id: diskId }); // insert to top of disk stack
         }
         return tower;
       }), // end map towers
