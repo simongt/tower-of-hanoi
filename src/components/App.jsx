@@ -44,46 +44,24 @@ class App extends Component {
   getTowerId = (diskId) => {}
 
   removeDisk = (diskId) => {
-    // console.log(diskId);
-    // const { towers } = this.state;
-    // let towerId = null;
-    // towers.forEach(tower => {
-    //   tower.disks.forEach(disk => {
-    //     if (disk.id === diskId) {
-    //       towerId = tower.id;
-    //       console.log(`Remove DISK ${diskId} from TOWER ${towerId}.`);
-    //     }
-    //   })
-    // });
     this.setState(prevState => {
-      // prevState.towers = prevState.towers.map(tower => {
-      //   console.log(`Searching TOWER ${tower.id}...`);
-      //   return tower.disks.filter(disk => {
-      //     console.log(`Checking if DISK ${disk.id} was moved.`);
-      //     if (disk.id === diskId) {
-      //       console.log(`→ DISK ${disk.id} was moved!`);
-      //     }
-      //     return disk.id !== diskId;
-      //   });
-      // })
-      return {
-        // towers: prevState.towers,
-        towers: prevState.towers.map(tower => {
-          console.log(`Searching TOWER ${tower.id}...`);
-          return (
-            // returns array of disks WITHOUT moved disk
-            tower.disks.filter(disk => {
-              console.log(`Checking if DISK ${disk.id} was moved.`);
-              if (disk.id === diskId) {
-                console.log(`→ DISK ${disk.id} was moved!`);
-              }
-              return disk.id !== diskId;
-            })
-          );
-        })
-      }
-    })
-  };
+      prevState.towers.forEach(tower => {
+        console.log(`Searching TOWER ${tower.id}...`);
+        // returns array of disks WITHOUT moved disk
+        tower.disks = tower.disks.filter(disk => {
+          console.log(`Checking if DISK ${disk.id} was moved.`);
+          if (disk.id === diskId) {
+            console.log(`→ DISK ${disk.id} was moved!`);
+          }
+          // filter moved disk out from previous tower's disks array
+          return disk.id !== diskId;
+        }); // filter disks
+      }) // forEach towers
+      return ({
+        towers: prevState.towers,
+      }); // return setState
+    }); // setState
+  }; // removeDisk
   
   render() {
     return (
