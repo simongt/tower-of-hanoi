@@ -33,35 +33,27 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("App → componentDidUpdate → this.state");
-    console.table(this.state);
+    // console.log("App → componentDidUpdate → state");
+    // console.table(this.state);
   }
 
   removeDisk = (diskId) => {
     this.setState(prevState => {
+      // traverse towers to filter out the moved disk
       prevState.towers.forEach(tower => {
-        // console.log(`Searching TOWER ${tower.id}...`);
-        // returns array of disks WITHOUT moved disk
         tower.disks = tower.disks.filter(disk => {
-          // console.log(`Checking if DISK ${disk.id} was moved.`);
-          if (disk.id === diskId) {
-            console.log(`→ DISK ${disk.id} was moved!`);
-          }
-          // filter moved disk out from previous tower's disks array
-          return disk.id !== diskId;
+          return disk.id !== diskId; // filter out moved disk
         }); // end filter disks
       }); // end forEach towers
-
       return ({
         towers: prevState.towers,
-      }); // return setState
+      });
     }); // end setState
   }; // end removeDisk
 
   insertDisk = (diskId, towerId) => {
     this.setState(prevState => ({
-      // find target tower, update it (add disk to disks array)
-      // update towers in state
+      // add disk to target tower
       towers: prevState.towers.map(tower => {
         if (tower.id === towerId) {
           tower.disks.push({ id: diskId });

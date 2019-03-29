@@ -2,27 +2,26 @@ import React, { Component } from "react";
 import Layout from "../constants/Layout";
 import Disk from "./Disk";
 import Overlay from "../util/Overlay";
-import { isValidDiskMove } from "../util/GamePlay";
 import { DropTarget } from "react-dnd";
 import ItemTypes from "../constants/ItemTypes";
 
-// drop target spec that only handles the drop event
+const isValidDiskMove = (rank, disks) => {
+  return true; // assume true until it's time to implement gameplay logic
+};
+
+// drop target specification that only handles the drop event
 const towerTarget = {
-  canDrop({ disks, addDisk }, monitor) {
-    // console.log("Detect if DISK can be validly dropped to TOWER.");
+  canDrop({ disks }, monitor) {
     const rank = monitor.getItem().rank;
     return isValidDiskMove(rank, disks);
   },
-  drop({ disks, removeDisk, insertDisk }, monitor) {
-    console.log("Drop DISK");
+  drop({ removeDisk, insertDisk }, monitor) {
     const rank = monitor.getItem().rank;
     const target = parseInt(monitor.targetId.substr(1)) + 1;
     removeDisk(rank);
     insertDisk(rank, target);
   },
-  hover(props, monitor) {
-    // console.log("DISK is hovering TOWER.");
-  }
+  hover() {}
 };
 
 const collect = (connect, monitor) => ({
@@ -30,7 +29,6 @@ const collect = (connect, monitor) => ({
   canDrop: monitor.canDrop(),
   isOver: monitor.isOver(),
   diskDragged: monitor.getItem(),
-  monitor: monitor,
 });
 
 class Tower extends Component {
@@ -66,9 +64,10 @@ class Tower extends Component {
     
     return connectDropTarget(
       <div style={towerStyle}>
-        {/* while dragging disk over tower, render overlay */}
-        {isOver && canDrop && <Overlay rank={diskDragged.rank} />}      
-        {disks && disks.map(disk => <Disk key={disk.id} rank={disk.id} />)} 
+        {/* render overlay while dragging disk over tower */}
+        {isOver && canDrop && <Overlay rank={diskDragged.rank} />}
+        {/* render disks if tower has any */}
+        {disks && disks.map(disk => <Disk key={disk.id} rank={disk.id} />)}
       </div>
     );
   }
