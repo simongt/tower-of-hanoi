@@ -18,21 +18,21 @@ class Setting extends Component {
           key={towers[i].id}
           disks={towers[i++].disks}
           removeDisk={(diskId) => removeDisk(diskId)}
-          insertDisk={(diskId, disks) => insertDisk(diskId, disks)}
+          insertDisk={(diskId, towerId) => insertDisk(diskId, towerId)}
         />
         <FloorSpace />
         <Tower
           key={towers[i].id}
           disks={towers[i++].disks}
           removeDisk={(diskId) => removeDisk(diskId)}
-          insertDisk={(diskId, disks) => insertDisk(diskId, disks)}
+          insertDisk={(diskId, towerId) => insertDisk(diskId, towerId)}
         />
         <FloorSpace />
         <Tower
           key={towers[i].id}
           disks={towers[i++].disks}
           removeDisk={(diskId) => removeDisk(diskId)}
-          insertDisk={(diskId, disks) => insertDisk(diskId, disks)}
+          insertDisk={(diskId, towerId) => insertDisk(diskId, towerId)}
         />
         <FloorSpace />
       </div>
