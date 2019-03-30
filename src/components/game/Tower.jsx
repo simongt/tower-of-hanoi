@@ -5,15 +5,13 @@ import Overlay from "../util/Overlay";
 import { DropTarget } from "react-dnd";
 import ItemTypes from "../constants/ItemTypes";
 
-const isValidDiskMove = (rank, disks) => {
-  return true; // assume true until it's time to implement gameplay logic
-};
-
 // drop target specification that only handles the drop event
 const towerTarget = {
-  canDrop({ disks }, monitor) {
+  canDrop({ isValidMove }, monitor) {
+    const diskIsOverTower = monitor.isOver();
     const rank = monitor.getItem().rank;
-    return isValidDiskMove(rank, disks);
+    const target = parseInt(monitor.targetId.substr(1)) + 1;
+    return diskIsOverTower ? isValidMove(rank, target) : false;
   },
   drop({ removeDisk, insertDisk }, monitor) {
     const rank = monitor.getItem().rank;

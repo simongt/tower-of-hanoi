@@ -9,7 +9,7 @@ const FloorSpace = () => (
 
 class Setting extends Component {
   render() {
-    const { towers, removeDisk, insertDisk } = this.props;
+    const { towers, removeDisk, insertDisk, isValidMove } = this.props;
     let i = 0; // tower index
     return (
       <div style={settingStyle}>
@@ -19,6 +19,7 @@ class Setting extends Component {
           disks={towers[i++].disks}
           removeDisk={(diskId) => removeDisk(diskId)}
           insertDisk={(diskId, towerId) => insertDisk(diskId, towerId)}
+          isValidMove={(diskId, towerId) => isValidMove(diskId, towerId)}
         />
         <FloorSpace />
         <Tower
@@ -26,6 +27,7 @@ class Setting extends Component {
           disks={towers[i++].disks}
           removeDisk={(diskId) => removeDisk(diskId)}
           insertDisk={(diskId, towerId) => insertDisk(diskId, towerId)}
+          isValidMove={(diskId, towerId) => isValidMove(diskId, towerId)}
         />
         <FloorSpace />
         <Tower
@@ -33,6 +35,7 @@ class Setting extends Component {
           disks={towers[i++].disks}
           removeDisk={(diskId) => removeDisk(diskId)}
           insertDisk={(diskId, towerId) => insertDisk(diskId, towerId)}
+          isValidMove={(diskId, towerId) => isValidMove(diskId, towerId)}
         />
         <FloorSpace />
       </div>

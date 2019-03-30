@@ -63,6 +63,28 @@ class App extends Component {
     })); // end setState
   } // end insertDisk
 
+  isValidMove = (diskId, towerId) => {
+    if (this.state.towers[towerId - 1].disks.length === 0) {
+      console.log("Valid move. Disk may be dropped into an empty tower.");
+      return true;
+    } else if (diskId < this.state.towers[towerId - 1].disks[0].id) {
+      console.log("Valid move. Disk may be dropped onto smaller disk.");
+      return true;
+    } else if (diskId > this.state.towers[towerId - 1].disks[0].id) {
+      console.log(
+        "Invalid move. Disk may only be dropped on larger disk or empty tower."
+      );
+      return false;
+    } else if (diskId === this.state.towers[towerId - 1].disks[0].id) {
+      console.log(
+        "Invalid move. Disk may not be dropped on same tower that it came from."
+      );
+      return false;
+    }
+    console.log("Invalid move."); // shouldn't be possible
+    return false;
+  } // end isValidMove
+
   render() {
     return (
       <div style={layoutStyle}>
@@ -71,6 +93,7 @@ class App extends Component {
           towers={this.state.towers}
           removeDisk={this.removeDisk}
           insertDisk={this.insertDisk}
+          isValidMove={this.isValidMove}
         />
         <Footer />
       </div>
