@@ -25,14 +25,20 @@ const towerTarget = {
 const collect = (connect, monitor) => ({
   connectDropTarget: connect.dropTarget(),
   canDrop: monitor.canDrop(),
-  isOver: monitor.isOver(),
+  diskIsOverTower: monitor.isOver(),
   diskDragged: monitor.getItem(),
 });
 
 class Tower extends Component {
   render() {
-    const { disks, connectDropTarget, isOver, canDrop, diskDragged } = this.props;
-    const background = isOver
+    const {
+      disks,
+      connectDropTarget,
+      diskIsOverTower,
+      // canDrop,
+      diskDragged
+    } = this.props;
+    const background = diskIsOverTower
       ? `linear-gradient(
           to bottom,
           rgba(255, 204, 0, 1),
@@ -63,7 +69,7 @@ class Tower extends Component {
     return connectDropTarget(
       <div style={towerStyle}>
         {/* render overlay while dragging disk over tower */}
-        {isOver && canDrop && <Overlay rank={diskDragged.rank} />}
+        {diskIsOverTower && <Overlay rank={diskDragged.rank} />}
         {/* render disks if tower has any */}
         {disks && disks.map(disk => <Disk key={disk.id} rank={disk.id} />)}
       </div>
