@@ -36,7 +36,9 @@ class Tower extends Component {
       connectDropTarget,
       diskIsOverTower,
       // canDrop,
-      diskDragged
+      diskDragged,
+      // gameIsWon,
+      // numMovesPlayed,
     } = this.props;
     const background = diskIsOverTower
       ? `linear-gradient(

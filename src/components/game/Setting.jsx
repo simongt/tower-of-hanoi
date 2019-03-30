@@ -9,7 +9,14 @@ const FloorSpace = () => (
 
 class Setting extends Component {
   render() {
-    const { towers, removeDisk, insertDisk, isValidMove } = this.props;
+    const {
+      towers,
+      numMovesPlayed,
+      removeDisk,
+      insertDisk,
+      isValidMove,
+      gameIsWon
+    } = this.props;
     let i = 0; // tower index
     return (
       <div style={settingStyle}>
@@ -17,25 +24,31 @@ class Setting extends Component {
         <Tower
           key={towers[i].id}
           disks={towers[i++].disks}
+          numMovesPlayed={numMovesPlayed}
           removeDisk={(diskId) => removeDisk(diskId)}
           insertDisk={(diskId, towerId) => insertDisk(diskId, towerId)}
           isValidMove={(diskId, towerId) => isValidMove(diskId, towerId)}
+          gameIsWon={() => gameIsWon}
         />
         <FloorSpace />
         <Tower
           key={towers[i].id}
           disks={towers[i++].disks}
+          numMovesPlayed={numMovesPlayed}
           removeDisk={(diskId) => removeDisk(diskId)}
           insertDisk={(diskId, towerId) => insertDisk(diskId, towerId)}
           isValidMove={(diskId, towerId) => isValidMove(diskId, towerId)}
+          gameIsWon={() => gameIsWon}
         />
         <FloorSpace />
         <Tower
           key={towers[i].id}
           disks={towers[i++].disks}
+          numMovesPlayed={numMovesPlayed}
           removeDisk={(diskId) => removeDisk(diskId)}
           insertDisk={(diskId, towerId) => insertDisk(diskId, towerId)}
           isValidMove={(diskId, towerId) => isValidMove(diskId, towerId)}
+          gameIsWon={() => gameIsWon}
         />
         <FloorSpace />
       </div>
