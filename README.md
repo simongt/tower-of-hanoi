@@ -157,12 +157,12 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
    * Generate at least three disks stacked on the first tower.  ✓
      * Implement difficulty levels according to the number of disks, where the user can select a starting number of disks (the minimum / default is 3). ***Post-MVP***
 
-3. Implement gameplay logic.
-   * Only the upper (top-most) disk from any tower can be moved.
-   * Allow only valid moves:
-     * a disk may be dropped over a larger disk within another tower,
-     * or a disk may be dropped into an empty tower (containing no disks).
-   * Game is won when disks are stacked conically on either the second or third tower (the first tower is empty).
+3. Implement gameplay logic. ✓
+   * Only the upper (top-most) disk from any tower can be moved. ✓
+   * Allow only valid moves: ✓
+     * a disk may be dropped over a larger disk within another tower, ✓
+     * or a disk may be dropped into an empty tower (containing no disks). ✓
+   * Game is won when disks are stacked conically on either the second or third tower (the first tower is empty). ✓
      * Implement an option to continue to next difficulty level (add one more disk). ***Post-MVP***
    * Implement buttons:
      1. plus / minus buttons to increment / decrement number of playable disks, ***Post-MVP***
