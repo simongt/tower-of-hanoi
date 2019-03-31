@@ -31,7 +31,7 @@ const DescriptionModal = props => (
     shouldReturnFocusAfterClose={true}
     ariaHideApp={false}
   >
-    <Description toggleModal={props.toggleModal} />
+    <Description toggleModal={props.toggleDescription} />
   </ReactModal>
 );
 
