@@ -149,13 +149,15 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
 
 2. Implement component(s) for disks and their mechanics, e.g. drag-and-drop feature. ✓
    * Upon release, lock to nearest standing tower and drop to the bottom (or top of disk stack).
-     * Consider using [react-dnd](https://github.com/react-dnd/react-dnd/)'s API to handle drag-and-drop for non-touch devices.  ✓
+     * Consider using [react-dnd](https://github.com/react-dnd/react-dnd/)'s API to handle drag-and-drop for non-touch devices. ✓
      * Since native drag-and-drop is not yet supported on touch devices, consider using Yahoo's [touch back-end](https://github.com/yahoo/react-dnd-touch-backend/) for [react-dnd](https://github.com/react-dnd/react-dnd). ***Post-MVP***
      * Consider using [SyntheticEvent](https://reactjs.org/docs/events.html/) wrappers to handle drag-and-drop without using an external API. ***Post-MVP***
      * Implement collision detection between disks and towers so that drag-and-drop can execute properly when disk is hovering the tower (even when cursor is not). ***Post-MVP***
        * *DropTarget responds only to the cursor, not to the element being dragged. What can be done to change this behavior?*
-   * Generate at least three disks stacked on the first tower.  ✓
+   * Generate at least three disks stacked on the first tower. ✓
      * Implement difficulty levels according to the number of disks, where the user can select a starting number of disks (the minimum / default is 3). ***Post-MVP***
+   * Add modal that pops up with game description at time of initial loading. ✓
+   * Add modal that pops up with results when game is won, including a message about how many moves were taken.
 
 3. Implement gameplay logic. ✓
    * Only the upper (top-most) disk from any tower can be moved. ✓
