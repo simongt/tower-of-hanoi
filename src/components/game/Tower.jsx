@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Layout from "../constants/Layout";
+import { DropTarget } from "react-dnd";
 import Disk from "./Disk";
 import Overlay from "../util/Overlay";
-import { DropTarget } from "react-dnd";
+import Layout from "../constants/Layout";
 import ItemTypes from "../constants/ItemTypes";
 
 // drop target specification that only handles the drop event
