@@ -5,15 +5,13 @@ import Overlay from "../util/Overlay";
 import { DropTarget } from "react-dnd";
 import ItemTypes from "../constants/ItemTypes";
 
-const isValidDiskMove = (rank, disks) => {
-  return true; // assume true until it's time to implement gameplay logic
-};
-
 // drop target specification that only handles the drop event
 const towerTarget = {
-  canDrop({ disks }, monitor) {
+  canDrop({ isValidMove }, monitor) {
+    const diskIsOverTower = monitor.isOver();
     const rank = monitor.getItem().rank;
-    return isValidDiskMove(rank, disks);
+    const target = parseInt(monitor.targetId.substr(1)) + 1;
+    return diskIsOverTower ? isValidMove(rank, target) : false;
   },
   drop({ removeDisk, insertDisk }, monitor) {
     const rank = monitor.getItem().rank;
@@ -27,14 +25,22 @@ const towerTarget = {
 const collect = (connect, monitor) => ({
   connectDropTarget: connect.dropTarget(),
   canDrop: monitor.canDrop(),
-  isOver: monitor.isOver(),
+  diskIsOverTower: monitor.isOver(),
   diskDragged: monitor.getItem(),
 });
 
 class Tower extends Component {
   render() {
-    const { disks, connectDropTarget, isOver, canDrop, diskDragged } = this.props;
-    const background = isOver
+    const {
+      disks,
+      connectDropTarget,
+      diskIsOverTower,
+      // canDrop,
+      diskDragged,
+      // gameIsWon,
+      // numMovesPlayed,
+    } = this.props;
+    const background = diskIsOverTower
       ? `linear-gradient(
           to bottom,
           rgba(255, 204, 0, 1),
@@ -65,7 +71,7 @@ class Tower extends Component {
     return connectDropTarget(
       <div style={towerStyle}>
         {/* render overlay while dragging disk over tower */}
-        {isOver && canDrop && <Overlay rank={diskDragged.rank} />}
+        {diskIsOverTower && <Overlay rank={diskDragged.rank} />}
         {/* render disks if tower has any */}
         {disks && disks.map(disk => <Disk key={disk.id} rank={disk.id} />)}
       </div>
