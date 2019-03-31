@@ -22,7 +22,7 @@ class App extends Component {
   componentDidMount = () => {
     const disks = [];
     for(let id = 1; id <= Layout.NUM_DISKS; id++) {
-      disks.push({id: id});
+      disks.push({ id: id });
     }
     this.setState({
       towers: [
@@ -41,17 +41,24 @@ class App extends Component {
   }  
 
   removeDisk = (diskId) => {
+    let towerId = null; // return tower id of disk removed
     this.setState(prevState => {
       // traverse towers to filter out the moved disk
       prevState.towers.forEach(tower => {
         tower.disks = tower.disks.filter(disk => {
-          return disk.id !== diskId; // filter out moved disk
+          if (disk.id === diskId) { // filter out moved disk
+            towerId = tower.id;
+            return false; // exclude disk
+          } else {
+            return true; // include disk
+          }
         }); // end filter disks
       }); // end forEach towers
       return ({
         towers: prevState.towers,
       });
     }); // end setState
+    return towerId;
   }; // end removeDisk
 
   insertDisk = (diskId, towerId) => {
@@ -69,21 +76,34 @@ class App extends Component {
 
   isValidMove = (diskId, towerId) => {
     const { towers } = this.state;
-    // consider all disk move circumstances
+    // consider all disk-move circumstances
     if (towers[towerId - 1].disks.length === 0) {
-      // Valid move: disk may be dropped into an empty tower.
+      // valid move: disk may be dropped onto an empty tower
       return true;
     } else if (diskId < towers[towerId - 1].disks[0].id) {
-      // Valid move: disk may be dropped onto smaller disk.
+      // valid move: disk may be dropped onto smaller disk
       return true;
     } else if (diskId > towers[towerId - 1].disks[0].id) {
-      // Invalid move: disk may only be dropped on larger disk or empty tower.
+      // invalid move: disk may only be dropped on larger disk or empty tower
       return false;
     } else if (diskId === towers[towerId - 1].disks[0].id) {
-      // Invalid move: disk may not be dropped on same tower that it came from.
+      // invalid move: disk may not be dropped onto same tower it came from
       return false;
     }
   } // end isValidMove
+
+  isOnTop = (diskId) => {
+    const { towers } = this.state;
+    let diskIsOnTop = false;
+    towers.forEach(tower => {
+      if (tower.disks.length !== 0) {
+        if (tower.disks[0].id === diskId) {
+          diskIsOnTop = true;
+        }
+      }
+    });
+    return diskIsOnTop;
+  } // end isOnTop
 
   gameIsWon = () => {
     // check for winning stack sequence on either tower 2 or 3
@@ -106,6 +126,7 @@ class App extends Component {
           removeDisk={this.removeDisk}
           insertDisk={this.insertDisk}
           isValidMove={this.isValidMove}
+          isOnTop={this.isOnTop}
           gameIsWon={this.gameIsWon}
         />
         <Footer />
