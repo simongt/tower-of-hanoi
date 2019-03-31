@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/towers-of-hanoi/precache-manifest.7ab05e297980c91ac4792dc91cf47e15.js"
+  "/towers-of-hanoi/precache-manifest.aab302b6b6503902c2b018d53df2f0b8.js"
 );
 
 workbox.clientsClaim();
