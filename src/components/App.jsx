@@ -22,20 +22,15 @@ class App extends Component {
   } // end constructor
 
   // modal methods
-  handleToggleModal = () => {
-    console.log("App --> handleToggleModal");
+  handleToggleDescriptionModal = () => {
     this.setState(prevState => ({
       showDescription: !prevState.showDescription,
     }));
   }
 
-  handleAfterOpenModal = () => {
-    console.log("App --> handleAfterOpenModal");
-  };
+  handleAfterOpenModal = () => {};
 
-  handleRequestCloseModal = () => {
-    console.log("App --> handleRequestCloseModal");
-  };
+  handleRequestCloseModal = () => {};
 
   componentDidMount = () => {
     const disks = [];
@@ -140,7 +135,7 @@ class App extends Component {
       <div style={layoutStyle}>
         <DescriptionModal
           showDescription={showDescription}
-          toggleModal={this.handleToggleModal}
+          toggleDescription={this.handleToggleDescriptionModal}
           afterOpenModal={this.handleAfterOpenModal}
           requestCloseModal={this.handleRequestCloseModal}
         />
