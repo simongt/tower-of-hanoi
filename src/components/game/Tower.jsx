@@ -1,17 +1,18 @@
 import React, { Component } from "react";
-import Layout from "../constants/Layout";
+import { DropTarget } from "react-dnd";
 import Disk from "./Disk";
 import Overlay from "../util/Overlay";
-import { DropTarget } from "react-dnd";
+import Layout from "../constants/Layout";
 import ItemTypes from "../constants/ItemTypes";
 
 // drop target specification that only handles the drop event
 const towerTarget = {
-  canDrop({ isValidMove }, monitor) {
+  canDrop({ isValidMove, isOnTop }, monitor) {
     const diskIsOverTower = monitor.isOver();
     const rank = monitor.getItem().rank;
+    const diskIsOnTop = isOnTop(rank);
     const target = parseInt(monitor.targetId.substr(1)) + 1;
-    return diskIsOverTower ? isValidMove(rank, target) : false;
+    return diskIsOverTower && diskIsOnTop ? isValidMove(rank, target) : false;
   },
   drop({ removeDisk, insertDisk }, monitor) {
     const rank = monitor.getItem().rank;

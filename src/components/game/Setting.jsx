@@ -15,6 +15,7 @@ class Setting extends Component {
       removeDisk,
       insertDisk,
       isValidMove,
+      isOnTop,
       gameIsWon
     } = this.props;
     let i = 0; // tower index
@@ -28,7 +29,7 @@ class Setting extends Component {
           removeDisk={(diskId) => removeDisk(diskId)}
           insertDisk={(diskId, towerId) => insertDisk(diskId, towerId)}
           isValidMove={(diskId, towerId) => isValidMove(diskId, towerId)}
-          gameIsWon={() => gameIsWon}
+          isOnTop={(diskId) => isOnTop(diskId)}
         />
         <FloorSpace />
         <Tower
@@ -38,7 +39,8 @@ class Setting extends Component {
           removeDisk={(diskId) => removeDisk(diskId)}
           insertDisk={(diskId, towerId) => insertDisk(diskId, towerId)}
           isValidMove={(diskId, towerId) => isValidMove(diskId, towerId)}
-          gameIsWon={() => gameIsWon}
+          isOnTop={(diskId) => isOnTop(diskId)}
+          gameIsWon={() => gameIsWon()}
         />
         <FloorSpace />
         <Tower
@@ -48,7 +50,8 @@ class Setting extends Component {
           removeDisk={(diskId) => removeDisk(diskId)}
           insertDisk={(diskId, towerId) => insertDisk(diskId, towerId)}
           isValidMove={(diskId, towerId) => isValidMove(diskId, towerId)}
-          gameIsWon={() => gameIsWon}
+          isOnTop={(diskId) => isOnTop(diskId)}
+          gameIsWon={() => gameIsWon()}
         />
         <FloorSpace />
       </div>
