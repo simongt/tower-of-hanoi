@@ -3,6 +3,7 @@ import Setting from "./game/Setting";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import Layout from "./constants/Layout";
+import DescriptionModal from "./util/modals/DescriptionModal";
 
 class App extends Component {
   
@@ -10,6 +11,7 @@ class App extends Component {
     super(props);
   
     this.state = {
+      showDescription: true,
       numMovesPlayed: 0,
       towers: [
         { id: 1, disks: [] },
@@ -18,6 +20,22 @@ class App extends Component {
       ],
     };
   } // end constructor
+
+  // modal methods
+  handleToggleModal = () => {
+    console.log("App --> handleToggleModal");
+    this.setState(prevState => ({
+      showDescription: !prevState.showDescription,
+    }));
+  }
+
+  handleAfterOpenModal = () => {
+    console.log("App --> handleAfterOpenModal");
+  };
+
+  handleRequestCloseModal = () => {
+    console.log("App --> handleRequestCloseModal");
+  };
 
   componentDidMount = () => {
     const disks = [];
@@ -117,12 +135,20 @@ class App extends Component {
   } // end gameIsWon
 
   render() {
+    const { towers, numMovesPlayed, showDescription } = this.state;
     return (
       <div style={layoutStyle}>
+        <DescriptionModal
+          showDescription={showDescription}
+          toggleModal={this.handleToggleModal}
+          afterOpenModal={this.handleAfterOpenModal}
+          requestCloseModal={this.handleRequestCloseModal}
+        />
         <Header />
         <Setting
-          towers={this.state.towers}
-          numMovesPlayed={this.state.numMovesPlayed}
+          towers={towers}
+          numMovesPlayed={numMovesPlayed}
+          showDescription={showDescription}
           removeDisk={this.removeDisk}
           insertDisk={this.insertDisk}
           isValidMove={this.isValidMove}
