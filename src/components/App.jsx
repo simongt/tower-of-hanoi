@@ -58,7 +58,7 @@ class App extends Component {
     const { numMovesPlayed } = this.state;
     if (this.gameIsWon()) {
       console.log(`Game has been won in ${numMovesPlayed} moves.`);
-      this.handleToggleResultsModal();
+      // this.handleToggleResultsModal();
     }
   }  
 
@@ -159,6 +159,7 @@ class App extends Component {
           towers={towers}
           numMovesPlayed={numMovesPlayed}
           showDescription={showDescription}
+          showResults={showResults}
           removeDisk={this.removeDisk}
           insertDisk={this.insertDisk}
           isValidMove={this.isValidMove}
