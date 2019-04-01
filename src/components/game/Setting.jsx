@@ -13,6 +13,7 @@ class Setting extends Component {
       towers,
       numMovesPlayed,
       // showDescription,
+      // showResults,
       removeDisk,
       insertDisk,
       isValidMove,

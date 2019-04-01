@@ -4,6 +4,7 @@ import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import Layout from "./constants/Layout";
 import DescriptionModal from "./util/modals/DescriptionModal";
+import ResultsModal from "./util/modals/ResultsModal";
 
 class App extends Component {
   
@@ -12,6 +13,7 @@ class App extends Component {
   
     this.state = {
       showDescription: true,
+      showResults: false,
       numMovesPlayed: 0,
       towers: [
         { id: 1, disks: [] },
@@ -25,6 +27,12 @@ class App extends Component {
   handleToggleDescriptionModal = () => {
     this.setState(prevState => ({
       showDescription: !prevState.showDescription,
+    }));
+  }
+
+  handleToggleResultsModal = () => {
+    this.setState(prevState => ({
+      showResults: !prevState.showResults,
     }));
   }
 
@@ -50,6 +58,7 @@ class App extends Component {
     const { numMovesPlayed } = this.state;
     if (this.gameIsWon()) {
       console.log(`Game has been won in ${numMovesPlayed} moves.`);
+      // this.handleToggleResultsModal();
     }
   }  
 
@@ -130,7 +139,7 @@ class App extends Component {
   } // end gameIsWon
 
   render() {
-    const { towers, numMovesPlayed, showDescription } = this.state;
+    const { towers, numMovesPlayed, showDescription, showResults } = this.state;
     return (
       <div style={layoutStyle}>
         <DescriptionModal
@@ -139,11 +148,18 @@ class App extends Component {
           afterOpenModal={this.handleAfterOpenModal}
           requestCloseModal={this.handleRequestCloseModal}
         />
+        <ResultsModal
+          showResults={showResults}
+          toggleResults={this.handleToggleResultsModal}
+          afterOpenModal={this.handleAfterOpenModal}
+          requestCloseModal={this.handleRequestCloseModal}
+        />
         <Header />
         <Setting
           towers={towers}
           numMovesPlayed={numMovesPlayed}
           showDescription={showDescription}
+          showResults={showResults}
           removeDisk={this.removeDisk}
           insertDisk={this.insertDisk}
           isValidMove={this.isValidMove}
