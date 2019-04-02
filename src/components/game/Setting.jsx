@@ -14,6 +14,7 @@ class Setting extends Component {
       numMovesPlayed,
       // showDescription,
       // showResults,
+      // toggleResults,
       removeDisk,
       insertDisk,
       isValidMove,
