@@ -13,7 +13,7 @@ class App extends Component {
   
     this.state = {
       showDescription: true,
-      showResults: false,
+      showResults: true,
       numMovesPlayed: 0,
       towers: [
         { id: 1, disks: [] },
@@ -55,11 +55,10 @@ class App extends Component {
   } // end componentDidMount
 
   componentDidUpdate = () => {
-    const { numMovesPlayed } = this.state;
-    if (this.gameIsWon()) {
-      console.log(`Game has been won in ${numMovesPlayed} moves.`);
-      // this.handleToggleResultsModal();
-    }
+    // const { numMovesPlayed } = this.state;
+    // if (this.gameIsWon()) {
+    //   console.log(`Game has been won in ${numMovesPlayed} moves.`);
+    // }
   }  
 
   removeDisk = (diskId) => {
@@ -148,18 +147,19 @@ class App extends Component {
           afterOpenModal={this.handleAfterOpenModal}
           requestCloseModal={this.handleRequestCloseModal}
         />
-        <ResultsModal
+        {this.gameIsWon() && <ResultsModal
           showResults={showResults}
           toggleResults={this.handleToggleResultsModal}
           afterOpenModal={this.handleAfterOpenModal}
           requestCloseModal={this.handleRequestCloseModal}
-        />
+        />}
         <Header />
         <Setting
           towers={towers}
           numMovesPlayed={numMovesPlayed}
           showDescription={showDescription}
           showResults={showResults}
+          toggleResults={this.handleToggleResultsModal}
           removeDisk={this.removeDisk}
           insertDisk={this.insertDisk}
           isValidMove={this.isValidMove}
