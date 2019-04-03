@@ -190,7 +190,7 @@ Here is my implementation overview (along with an ongoing post-MVP backlog):
 The project's <strong>file tree</strong> file tree and a brief note on each file's relevancy:
 
 ```
-src
+src/
 ├── components
 │   ├── App.jsx
 │   ├── constants
@@ -204,7 +204,12 @@ src
 │   │   ├── Footer.jsx
 │   │   └── Header.jsx
 │   └── util
-│       └── GamePlay.js
+│       ├── Overlay.jsx
+│       └── modals
+│           ├── Description.jsx
+│           ├── DescriptionModal.jsx
+│           ├── Results.jsx
+│           └── ResultsModal.jsx
 ├── index.js
 ├── lib
 │   └── withDragDropContext.js
